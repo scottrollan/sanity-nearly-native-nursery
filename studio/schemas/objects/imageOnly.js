@@ -1,7 +1,7 @@
 export default {
     type: 'object',
     name: 'imageOnly',
-    title: 'Image with text',
+    title: 'Image without text',
     fields: [
       {
         name: 'heading',
