@@ -10,9 +10,9 @@ const builder = imageUrlBuilder(client)
 function ImageOnly (props) {
   const {heading, label, image, cta} = props
 
-  if (!image) {
-    return null
-  }
+//   if (!image) {
+//     return null
+//   }
 
   return (
     <div className={styles.root}>
@@ -24,25 +24,14 @@ function ImageOnly (props) {
             .width(2000)
             .url()}
           className={styles.image}
-          alt={heading}
+          alt='missing image'
         />
-        <figcaption>
-          <div className={styles.caption}>
-            <div className={styles.captionBox}>
-              <div className={styles.label}>{label}</div>
-              <h2 className={styles.title}>{heading}</h2>
-              {cta && cta.route && <Cta {...cta} />}
-            </div>
-          </div>
-        </figcaption>
       </figure>
     </div>
   )
 }
 
 ImageOnly.propTypes = {
-  heading: PropTypes.string,
-  label: PropTypes.string,
   image: PropTypes.shape({
     asset: PropTypes.shape({
       _ref: PropTypes.string
@@ -50,7 +39,6 @@ ImageOnly.propTypes = {
   }),
   backgroundImage: PropTypes.string,
   tagline: PropTypes.string,
-  cta: PropTypes.object
 }
 
 export default ImageOnly
