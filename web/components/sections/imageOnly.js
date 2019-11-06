@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import imageUrlBuilder from '@sanity/image-url'
 import styles from './ImageOnly.module.css'
 import client from '../../client'
-import Cta from '../Cta'
 
 const builder = imageUrlBuilder(client)
 
