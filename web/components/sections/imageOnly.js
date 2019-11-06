@@ -40,7 +40,7 @@ function ImageOnly (props) {
   )
 }
 
-ImageSection.propTypes = {
+ImageOnly.propTypes = {
   heading: PropTypes.string,
   label: PropTypes.string,
   image: PropTypes.shape({
