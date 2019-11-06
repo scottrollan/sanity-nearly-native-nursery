@@ -21,9 +21,9 @@ import simplePortableText from './objects/simplePortableText';
 // Landing page sections
 import hero from './objects/hero';
 import imageSection from './objects/imageSection';
+import imageOnly from './objects/imageOnly';
 import mailchimp from './objects/mailchimp';
 import textSection from './objects/textSection';
-import imageOnly from './objects/imageOnly';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({

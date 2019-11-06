@@ -9,15 +9,7 @@
     padding: 4rem 0;
   }
 }
-
-.label {
-  font-size: var(--font-micro-size);
-  line-height: var(--font-micro-line-height);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-top: 1em;
-}
-
+/* 
 .label + .title {
   margin-top: 0.2em;
 }
@@ -25,7 +17,7 @@
 .title {
   font-size: var(--font-title3-size);
   line-height: var(--font-title3-line-height);
-}
+} */
 
 .image {
   display: block;
@@ -52,7 +44,7 @@
     }
   }
 }
-
+/* 
 .caption {
   width: 100%;
   margin: 0 auto;
@@ -71,4 +63,4 @@
   @media (--media-min-medium) {
     max-width: calc((var(--width-small) / 2) - 3rem);
   }
-}
+} */

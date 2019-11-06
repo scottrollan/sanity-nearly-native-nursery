@@ -7,15 +7,14 @@ import client from '../../client'
 const builder = imageUrlBuilder(client)
 
 function ImageOnly (props) {
-  const {heading, label, image, cta} = props
+  const {image} = props
 
-//   if (!image) {
-//     return null
-//   }
+  // if (!image) {
+  //   return null
+  // }
 
   return (
     <div className={styles.root}>
-      <figure className={styles.content}>
         <img
           src={builder
             .image(image)
@@ -25,7 +24,6 @@ function ImageOnly (props) {
           className={styles.image}
           alt='missing image'
         />
-      </figure>
     </div>
   )
 }

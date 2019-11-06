@@ -16,5 +16,8 @@
   "devDependencies": {
     "@sanity/cli": "^0.144.0",
     "lerna": "^3.9.0"
+  },
+  "dependencies": {
+    "netlify": "^2.4.8"
   }
 }
