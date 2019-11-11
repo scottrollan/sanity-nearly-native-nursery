@@ -24,6 +24,10 @@ export default {
         { type: 'imageOnly' },
         { type: 'mailchimp' },
         { type: 'textSection' },
+        { type: 'contactUs' },
+        { type: 'socialMedia' },
+        { type: 'searchPage' },
+        { type: 'shipping'}
       ],
     },
     {

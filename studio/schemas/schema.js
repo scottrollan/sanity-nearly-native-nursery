@@ -16,7 +16,10 @@ import figure from './objects/figure';
 import internalLink from './objects/internalLink';
 import link from './objects/link';
 import portableText from './objects/portableText';
+import searchPage from './objects/searchPage';
 import simplePortableText from './objects/simplePortableText';
+import socialMedia from './objects/socialMedia';
+import shipping from './objects/shipping';
 
 // Landing page sections
 import hero from './objects/hero';
@@ -24,6 +27,7 @@ import imageSection from './objects/imageSection';
 import imageOnly from './objects/imageOnly';
 import mailchimp from './objects/mailchimp';
 import textSection from './objects/textSection';
+import contactUs from './objects/contactUs';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -31,6 +35,7 @@ export default createSchema({
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
+    contactUs,
     cta,
     embedHTML,
     figure,
@@ -43,8 +48,11 @@ export default createSchema({
     page,
     portableText,
     route,
+    searchPage,
+    shipping,
     simplePortableText,
     siteConfig,
+    socialMedia,
     textSection,
   ]),
 });
