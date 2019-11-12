@@ -10,6 +10,7 @@ import route from './documents/route';
 import siteConfig from './documents/siteConfig';
 
 // Object types
+import contactUs from './objects/contactUs';
 import cta from './objects/cta';
 import embedHTML from './objects/embedHTML';
 import figure from './objects/figure';
@@ -27,7 +28,6 @@ import imageSection from './objects/imageSection';
 import imageOnly from './objects/imageOnly';
 import mailchimp from './objects/mailchimp';
 import textSection from './objects/textSection';
-import contactUs from './objects/contactUs';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
