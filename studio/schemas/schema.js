@@ -42,7 +42,7 @@ export default createSchema({
     embedHTML,
     figure,
     hero,
-    plant,
+    // plant,
     // imageOnly,
     imageSection,
     internalLink,
@@ -56,7 +56,7 @@ export default createSchema({
     simplePortableText,
     siteConfig,
     socialMedia,
-    textSection,
-    amount
+    textSection
+    // amount
   ])
 })
