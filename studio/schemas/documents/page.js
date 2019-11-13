@@ -22,7 +22,7 @@ export default {
         { type: 'contactUs' },
         { type: 'hero' },
         { type: 'imageSection' },
-        { type: 'imageOnly' },
+        // { type: 'imageOnly' },
         { type: 'mailchimp' },
         { type: 'socialMedia' },
         { type: 'searchPage' },

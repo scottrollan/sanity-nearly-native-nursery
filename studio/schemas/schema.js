@@ -25,7 +25,7 @@ import shipping from './objects/shipping';
 // Landing page sections
 import hero from './objects/hero';
 import imageSection from './objects/imageSection';
-import imageOnly from './objects/imageOnly';
+// import imageOnly from './objects/imageOnly';
 import mailchimp from './objects/mailchimp';
 import textSection from './objects/textSection';
 
@@ -40,7 +40,7 @@ export default createSchema({
     embedHTML,
     figure,
     hero,
-    imageOnly,
+    // imageOnly,
     imageSection,
     internalLink,
     link,

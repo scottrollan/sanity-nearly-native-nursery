@@ -15,7 +15,7 @@ export default {
       },
       prepare({ media }) {
         return {
-          title: `Image`,
+          title: `Image Only`,
           subtitle: 'Image only',
           media,
         };

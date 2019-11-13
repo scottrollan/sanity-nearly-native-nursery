@@ -49,13 +49,13 @@ class Shipping extends Component {
 
                 <h6 className='tableHeader'>Fuel Surcharge Costs</h6>
 
-            <div className='row' style={{ backgroundColor: '#c3c3c3' }}>
-                <p className='outlined6'>Zone 1</p>
-                <p className='outlined6'>Zone 2</p>
-                <p className='outlined6'>Zone 3</p>
-                <p className='outlined6'>Zone 4</p>
-                <p className='outlined6'>Zone 5</p>
-                <p className='outlined6'>Zone 6</p>              
+            <div className='row'>
+                <p className='outlined6' style={{ backgroundColor: '#ff007f' }}>Zone 1</p>
+                <p className='outlined6' style={{ backgroundColor: '#01ffff' }}>Zone 2</p>
+                <p className='outlined6' style={{ backgroundColor: '#ff7f02' }}>Zone 3</p>
+                <p className='outlined6' style={{ backgroundColor: '#00ff01' }}>Zone 4</p>
+                <p className='outlined6' style={{ backgroundColor: '#4e148c' }}>Zone 5</p>
+                <p className='outlined6' style={{ backgroundColor: '#1601ff' }}>Zone 6</p>              
             </div>
             <div className='row'>
                 <p className='outlined6'>base costs <em>plus</em></p>
