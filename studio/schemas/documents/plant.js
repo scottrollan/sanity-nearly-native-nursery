@@ -20,13 +20,13 @@ export default {
       options: {
         list: [
           {title: 'Shrubs', value: 'shrubs'},
-          { title: 'Trees', value: 'trees' },
-          { title: 'Palms', value: 'palms' },
-          { title: 'Opuntia', value: 'opuntia' },
-          { title: 'Perennials', value: 'perennials' },
-          { title: 'Grasses', value: 'grasses' },
-          { title: 'Ferns', value: 'ferns' },
-          { title: 'Vines', value: 'vines' }
+          {title: 'Trees', value: 'trees'},
+          {title: 'Palms', value: 'palms'},
+          {title: 'Opuntia', value: 'opuntia'},
+          {title: 'Perennials', value: 'perennials'},
+          {title: 'Grasses', value: 'grasses'},
+          {title: 'Ferns', value: 'ferns'},
+          {title: 'Vines', value: 'vines'}
         ]
       }
     },
@@ -36,18 +36,18 @@ export default {
       title: 'Low Zone',
       options: {
         list: [
-          { title: '1', value: '1' },
-          { title: '2', value: '2' },
-          { title: '3', value: '3' },
-          { title: '4', value: '4' },
-          { title: '5', value: '5' },
-          { title: '6', value: '6' },
-          { title: '7', value: '7' },
-          { title: '8', value: '8' },
-          { title: '9', value: '9' },
-          { title: '10', value: '10' },
-          { title: '11', value: '11' },
-          { title: '12', value: '12' }
+          {title: '1', value: '1'},
+          {title: '2', value: '2'},
+          {title: '3', value: '3'},
+          {title: '4', value: '4'},
+          {title: '5', value: '5'},
+          {title: '6', value: '6'},
+          {title: '7', value: '7'},
+          {title: '8', value: '8'},
+          {title: '9', value: '9'},
+          {title: '10', value: '10'},
+          {title: '11', value: '11'},
+          {title: '12', value: '12'}
         ]
       }
     },
@@ -57,18 +57,18 @@ export default {
       title: 'High Zone',
       options: {
         list: [
-          { title: '1', value: '1' },
-          { title: '2', value: '2' },
-          { title: '3', value: '3' },
-          { title: '4', value: '4' },
-          { title: '5', value: '5' },
-          { title: '6', value: '6' },
-          { title: '7', value: '7' },
-          { title: '8', value: '8' },
-          { title: '9', value: '9' },
-          { title: '10', value: '10' },
-          { title: '11', value: '11' },
-          { title: '12', value: '12' }
+          {title: '1', value: '1'},
+          {title: '2', value: '2'},
+          {title: '3', value: '3'},
+          {title: '4', value: '4'},
+          {title: '5', value: '5'},
+          {title: '6', value: '6'},
+          {title: '7', value: '7'},
+          {title: '8', value: '8'},
+          {title: '9', value: '9'},
+          {title: '10', value: '10'},
+          {title: '11', value: '11'},
+          {title: '12', value: '12'}
         ]
       }
     },
@@ -111,9 +111,9 @@ export default {
           type: 'string',
           options: {
             list: [
-              { title: 'Acid', value: 'acid' },
-              { title: 'Neutral', value: 'neutral' },
-              { title: 'Alkaline', value: 'alkaline' }
+              {title: 'Acid', value: 'acid'},
+              {title: 'Neutral', value: 'neutral'},
+              {title: 'Alkaline', value: 'alkaline'}
             ]
           }
         }
@@ -128,9 +128,9 @@ export default {
           type: 'string',
           options: {
             list: [
-              { title: 'Clay', value: 'clay' },
-              { title: 'Average', value: 'average' },
-              { title: 'Sand', value: 'sand' }
+              {title: 'Clay', value: 'clay'},
+              {title: 'Average', value: 'average'},
+              {title: 'Sand', value: 'sand'}
             ]
           }
         }
@@ -145,9 +145,9 @@ export default {
           type: 'string',
           options: {
             list: [
-              { title: 'Dry', value: 'dry' },
-              { title: 'Average', value: 'average' },
-              { title: 'Wet', value: 'wet' }
+              {title: 'Dry', value: 'dry'},
+              {title: 'Average', value: 'average'},
+              {title: 'Wet', value: 'wet'}
             ]
           }
         }
@@ -162,9 +162,9 @@ export default {
           type: 'string',
           options: {
             list: [
-              { title: 'Full', value: 'full' },
-              { title: 'Partial', value: 'partial' },
-              { title: 'Shade', value: 'shade' }
+              {title: 'Full', value: 'full'},
+              {title: 'Partial', value: 'partial'},
+              {title: 'Shade', value: 'shade'}
             ]
           }
         }
@@ -179,9 +179,9 @@ export default {
           type: 'string',
           options: {
             list: [
-              { title: 'Deciduous', value: 'deciduous' },
-              { title: 'Semi-Evergreen', value: 'semi-evergreen' },
-              { title: 'Evergreen', value: 'evergreen' }
+              {title: 'Deciduous', value: 'deciduous'},
+              {title: 'Semi-Evergreen', value: 'semi-evergreen'},
+              {title: 'Evergreen', value: 'evergreen'}
             ]
           }
         }
