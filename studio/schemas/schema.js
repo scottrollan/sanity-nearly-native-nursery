@@ -8,7 +8,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import page from './documents/page'
 import route from './documents/route'
 import siteConfig from './documents/siteConfig'
-import plant from './documents/plant'
+// import plant from './documents/plant'
 
 // Object types
 import contactUs from './objects/contactUs'
@@ -22,7 +22,7 @@ import searchPage from './objects/searchPage'
 import simplePortableText from './objects/simplePortableText'
 import socialMedia from './objects/socialMedia'
 import shipping from './objects/shipping'
-import amount from './objects/amount'
+// import amount from './objects/amount'
 
 // Landing page sections
 import hero from './objects/hero'
