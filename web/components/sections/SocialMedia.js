@@ -1,9 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './SocialMedia.module.css'
-// import Twitter from 'https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/062012/twitter-bird-white-on-blue.png?itok=XLNMKkJn'
-// import Instagram from 'https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/052016/untitled-1_201.png?itok=xztgzGA4'
-// import Facebook from 'https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/042017/untitled-1_145.png?itok=UOdjYB6-'
 
 function SocialMedia (props) {
   const {heading, label, text} = props
