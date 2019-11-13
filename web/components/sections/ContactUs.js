@@ -12,10 +12,10 @@ const ContactUs = (props) => {
             <div style={{ width: "50%" }}>
               <select name="subject[]"  required='required' selected='default'>
                 <option value="default" disabled>Select...</option>
-                <option>Informatin Request</option>
-                <option>General Inquiry</option>
-                <option>Praise/Complaint</option>
-                <option>Website Suggestion</option>
+                <option value="Inoformation">Information Request</option>
+                <option value="General Inquiry">General Inquiry</option>
+                <option value="Praise/Complaint">Praise/Complaint</option>
+                <option value="Website Suggestion">Website Suggestion</option>
               </select>
             </div>
 

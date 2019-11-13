@@ -16,6 +16,7 @@ import embedHTML from './objects/embedHTML';
 import figure from './objects/figure';
 import internalLink from './objects/internalLink';
 import link from './objects/link';
+import orderForm from './objects/orderForm';
 import portableText from './objects/portableText';
 import searchPage from './objects/searchPage';
 import simplePortableText from './objects/simplePortableText';
@@ -45,6 +46,7 @@ export default createSchema({
     internalLink,
     link,
     mailchimp,
+    orderForm,
     page,
     portableText,
     route,

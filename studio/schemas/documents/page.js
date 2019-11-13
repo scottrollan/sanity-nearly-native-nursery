@@ -24,6 +24,7 @@ export default {
         { type: 'imageSection' },
         // { type: 'imageOnly' },
         { type: 'mailchimp' },
+        { type: 'orderForm'},
         { type: 'socialMedia' },
         { type: 'searchPage' },
         { type: 'shipping' },
