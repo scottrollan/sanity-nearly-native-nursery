@@ -8,6 +8,8 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import page from './documents/page';
 import route from './documents/route';
 import siteConfig from './documents/siteConfig';
+import plant from './documents/plant';
+
 
 // Object types
 import contactUs from './objects/contactUs';
@@ -28,6 +30,7 @@ import imageSection from './objects/imageSection';
 // import imageOnly from './objects/imageOnly';
 import mailchimp from './objects/mailchimp';
 import textSection from './objects/textSection';
+import amount from './objects/amount';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -54,5 +57,7 @@ export default createSchema({
     siteConfig,
     socialMedia,
     textSection,
+    plant,
+    amount
   ]),
 });
