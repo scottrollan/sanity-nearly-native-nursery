@@ -85,7 +85,7 @@ class SearchPage extends Component {
   };
   render() {
     return (
-      <div>
+      <section>
         <div style={{ textAlign: "center" }}>
           <label htmlFor="search_name">
             <h4>Search Botanical Name or Common Name: &nbsp;</h4>
@@ -143,8 +143,8 @@ class SearchPage extends Component {
             </span>
           ))}
         </div>
-
-        
+        <div style={{ clear: 'both' }}>
+        </div>
         <div>            
           <span><label htmlFor="zone"><h5 style={{ clear: 'both' }}>USDA Hardiness Zone</h5></label>
           <select
@@ -199,6 +199,9 @@ class SearchPage extends Component {
         </div>
         <style jsx>
           {`
+            section {
+              text-align: left;
+            }
             h4, h5, hr {
               margin: 30px 0 10px;
             }
@@ -211,6 +214,7 @@ class SearchPage extends Component {
             .col5Float {
               float: left;
               width: 20%;
+              text-align: left;
             }
             #foliage_deciduous::after {
               float: none;
@@ -246,7 +250,7 @@ class SearchPage extends Component {
 
           `}
         </style>
-      </div>
+      </section>
     );
   }
 }
