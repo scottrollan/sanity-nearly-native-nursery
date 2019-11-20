@@ -19,7 +19,54 @@ class SearchPage extends Component {
     foliage_evergreen: false,
     foliage_semievergreen: false,
     foliage_deciduous: false,
-    zone: 'any'
+    zone: 'any',
+    growingConditions: [
+      {
+        title: 'Soil Ph',
+        choice1: 'soil_ph_acid',
+        choice1Name: 'acid',
+        choice2: 'soil_ph_neutral',
+        choice2Name: 'neutral',
+        choice3: 'soil_ph_alkaline',
+        choice3Name: 'alkaline'
+      },
+      {
+        title: 'Soil Type',
+        choice1: 'soil_type_clay',
+        choice1Name: 'clay',
+        choice2: 'soil_type_average',
+        choice2Name: 'average',
+        choice3: 'soil_type_sand',
+        choice3Name: 'sand'
+      },
+      {
+        title: 'Water',
+        choice1: 'water_dry',
+        choice1Name: 'dry',
+        choice2: 'water_average',
+        choice2Name: 'average',
+        choice3: 'water_wet',
+        choice3Name: 'wet'
+      },
+      {
+        title: 'Sun',
+        choice1: 'sun_full',
+        choice1Name: 'full',
+        choice2: 'sun_partial',
+        choice2Name: 'partial',
+        choice3: 'sun_shade',
+        choice3Name: 'shade'
+      },
+      {
+        title: 'Foliage',
+        choice1: 'foliage_evergreen',
+        choice1Name: 'evergreen',
+        choice2: 'foliage_semievergreen',
+        choice2Name: 'semi-evergreen',
+        choice3: 'foliage_deciduous',
+        choice3Name: 'deciduous'
+      }
+    ]
   };
 
   handleChange = event => {
@@ -49,194 +96,87 @@ class SearchPage extends Component {
             onChange={this.handleChange}
             style={{ backgroundColor: '#e3e3e3', padding: '0 8px', height: '22px' }}
           ></input>
+          <hr />
           <h4>...or by Growing Conditions</h4>
 
           <div
-            className="spacedRow col1"
-            style={{
-                padding: "0 2vw 1vh",
-                boxSizing: "border-box",
-                border: "1px solid #cccccc",
-                textAlign: "left", 
-                fontSize: '1.8vw'
-            }}
+            id="conditionsDiv"
+            // style={{
+            //     width: '80%',
+            //     margin: "0 10% 1vh",
+            //     textAlign: "left", 
+            //     fontSize: '1.8vw'
+            // }}
           >
-      <span
-        className="spacedRow indent0 col5"
-        style={{ display: "inline-block" }}
-      >
-        <div>Soil Ph</div>
-        <div>
-          <input
-            type="checkbox"
-            id="soil_ph_acid"
-            onChange={this.handleCheck}
-          ></input>
-          <label htmlFor="soil_ph_acid">acid</label>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            id="soil_ph_neutral"
-            onChange={this.handleCheck}
-          ></input>
-          <label htmlFor="soil_ph_neutral">neutral</label>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            id="soil_ph_alkaline"
-            onChange={this.handleCheck}
-          ></input>
-          <label htmlFor="soil_ph_alkaline">alkaline</label>
-        </div>
-      </span>
+          {this.state.growingConditions.map(c => (
 
-      <span className="spacedRow indent20 col5">
-        <div>Soil Type</div>
-        <div>
-          <input
-            type="checkbox"
-            id="soil_type_clay"
-            onChange={this.handleCheck}
-          ></input>
-          <label htmlFor="soil_type_clay">clay</label>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            id="soil_type_average"
-            onChange={this.handleCheck}
-          ></input>
-          <label htmlFor="soil_type_average">average</label>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            id="soil_type_sand"
-            onChange={this.handleCheck}
-          ></input>
-          <label htmlFor="soil_type_sand">sand</label>
-        </div>
-      </span>
+            <span
+              className="col5Float"
+              key={c.title}
+            >
+              <div style={{ textDecoration: 'underline' }}>{c.title}</div>
+              <div>
+                <input
+                  type="checkbox"
+                  id={c.choice1}
+                  onChange={this.handleCheck}
+                ></input>
+                <label htmlFor={c.choice1}>{c.choice1Name}</label>
 
-      <span className="spacedRow indent40 col5">
-        <div>Water</div>
-        <div>
-          <input
-            type="checkbox"
-            id="water_wet"
-            onChange={this.handleCheck}
-          ></input>
-          <label htmlFor="water_wet">wet</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  id={c.choice2}
+                  onChange={this.handleCheck}
+                ></input>
+                <label htmlFor={c.choice2}>{c.choice2Name}</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  id={c.choice3}
+                  onChange={this.handleCheck}
+                ></input>
+                <label htmlFor={c.choice3}>{c.choice3Name}</label>
+              </div>
+            </span>
+          ))}
         </div>
-        <div>
-          <input
-            type="checkbox"
-            id="water_average"
-            onChange={this.handleCheck}
-          ></input>
-          <label htmlFor="water_average">average</label>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            onChange={this.handleCheck}
-            id="water_dry"
-          ></input>
-          <label htmlFor="water_dry">dry</label>
-        </div>
-      </span>
-
-      <span className="spacedRow indent60 col5">
-        <div>Sun Exposure</div>
-        <div>
-          <input
-            type="checkbox"
-            id="sun_full"
-            onChange={this.handleCheck}
-          ></input>
-          <label htmlFor="sun_full">full</label>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            id="sun_partial"
-            onChange={this.handleCheck}
-          ></input>
-          <label htmlFor="sun_partial">partial</label>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            id="sun_shade"
-            onChange={this.handleCheck}
-          ></input>
-          <label htmlFor="sun_shade">shade</label>
-        </div>
-      </span>
-
-      <span className="spacedRow indent80 col5">
-        <div>Foliage</div>
-        <div>
-          <input
-            type="checkbox"
-            id="foliage_evergreen"
-            onChange={this.handleCheck}
-          ></input>
-          <label htmlFor="foliage_evergreen">evergreen</label>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            id="foliage_semievergreen"
-            onChange={this.handleCheck}
-          ></input>
-          <label htmlFor="foliage_semievergreen">semi-evergreen</label>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            id="foliage_deciduous"
-            onChange={this.handleCheck}
-          ></input>
-          <label htmlFor="foliage_deciduous">deciduous</label>
-        </div>
-      </span>
-      </div>
 
         
-         <div>            
-              <span><label htmlFor="zone"><h5 style={{ margin: '10px 0 0 0' }}>USDA Hardiness Zone</h5></label>
-              <select
-                type="number"
-                id="zone"
-                value={this.state.zone}
-                onChange={this.handleChange}
-                style={{ display: 'inline-block', margin: '0 10px' }}
-              >
-                <option value='any'>--any--</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option> 
-                <option>12</option>
-              </select>
-                <a href="https://garden.org/nga/zipzone/" target="_blank"><h6 style={{ display: 'inline-block', margin: '0 10px' }}><u>What's My USDA Hardiness Zone?</u></h6></a></span>
-            
-          </div>
+        <div>            
+          <span><label htmlFor="zone"><h5 style={{ clear: 'both' }}>USDA Hardiness Zone</h5></label>
+          <select
+            type="number"
+            id="zone"
+            value={this.state.zone}
+            onChange={this.handleChange}
+            style={{ display: 'inline-block', margin: '0 10px' }}
+          >
+            <option value='any'>--any--</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option> 
+            <option>12</option>
+          </select>
+            <a href="https://garden.org/nga/zipzone/" target="_blank"><h6 style={{ display: 'inline-block', margin: '0 10px' }}><u>What's My USDA Hardiness Zone?</u></h6></a></span>
+        
+        </div>
 
 
-          <div style={{ margin: '20px 0 0 0', display: 'block' }}>
+          <div style={{display: 'block' }}>
             <label htmlFor="category"><h5>Category</h5></label>
             <select
+            style={{ margin: '0' }}
             id="category"
             value={this.state.category}
             onChange={this.handleChange}
@@ -259,41 +199,22 @@ class SearchPage extends Component {
         </div>
         <style jsx>
           {`
-            html {
-              font-size: 1.8vw;
+            h4, h5, hr {
+              margin: 30px 0 10px;
             }
-            .spacedRow {
-              margin-top: 2vh;
-            }
-            .indent0 {
-              position: relative;
-              left: 0%;
-              width: auto;
-            }
-            .indent20 {
-              position: absolute;
-              left: 20%;
-              width: auto;
-            }
-            .indent40 {
-              position: absolute;
-              left: 40%;
-              width: auto;
-            }
-            .indent60 {
-              position: absolute;
-              left: 60%;
-              width: auto;
-            }
-            .indent80 {
-              position: absolute;
-              left: 80%;
-            }
-            .col1 {
-              width: 100%;
-            }          
-            .col5 {
+            #conditionsDiv {
+                width: 80%;
+                margin: 0 10% 1vh;
+                textAlign: left; 
+                fontSize: 1.8vw;
+            }         
+            .col5Float {
+              float: left;
               width: 20%;
+            }
+            #foliage_deciduous::after {
+              float: none;
+              contenet: " --- does this work?"
             }
             #plantFind {
               width:38%; 
@@ -311,7 +232,18 @@ class SearchPage extends Component {
             }
             #plantFind:hover {
               color: #7d62b2;
+              background-color: #e3e3e3;
             }
+            @media screen and (max-width: 960px) {
+              .col5Float {
+                margin: 0 0 20px 0;
+                float: none;
+                display: inline-block;
+                width: 33.3330%;
+                font-size: 3vw;
+              }
+            }
+
           `}
         </style>
       </div>
