@@ -4,8 +4,8 @@ export default {
   type: 'object',
   fields: [
     {
-      title: 'Quantity',
-      name: 'quantity',
+      title: 'Container Size',
+      name: 'containerSize',
       type: 'string'
 
       // Here the user will be prompted to write any string to describe the resource type.

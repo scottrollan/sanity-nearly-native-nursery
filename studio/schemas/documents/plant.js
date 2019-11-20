@@ -195,7 +195,12 @@ export default {
     {
       title: 'Amount',
       name: 'amount',
-      type: 'amount'
+      type: 'array',
+      of: [{
+        title: 'Amount',
+        type: 'amount',
+        name: 'amount',
+      }]
     },
     {
       title: 'Purchase Notes',

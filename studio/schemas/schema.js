@@ -8,8 +8,10 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import page from './documents/page';
 import route from './documents/route';
 import siteConfig from './documents/siteConfig';
+import plant from './documents/plant';
 
 // Object types
+import amount from './objects/amount';
 import contactUs from './objects/contactUs';
 import cta from './objects/cta';
 import embedHTML from './objects/embedHTML';
@@ -36,6 +38,8 @@ export default createSchema({
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
+    amount,
+    plant,
     contactUs,
     cta,
     embedHTML,
