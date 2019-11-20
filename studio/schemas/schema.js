@@ -45,6 +45,8 @@ export default createSchema({
     embedHTML,
     figure,
     hero,
+    plant,
+    amount,
     // imageOnly,
     imageSection,
     internalLink,
