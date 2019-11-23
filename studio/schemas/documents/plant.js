@@ -4,9 +4,29 @@ export default {
   title: 'Plant',
   fields: [
     {
+      name: 'botanicalName',
+      type: 'string',
+      title: 'Botanical Name'
+    },
+    {
+      name: 'variety',
+      type: 'string',
+      title: 'Variety'
+    },
+    {
       name: 'name',
       type: 'string',
       title: 'Name'
+    },
+    {
+      name: 'commonName',
+      type: 'string',
+      title: 'Common Name'
+    },
+    {
+      name: 'regionalName',
+      type: 'string',
+      title: 'Regional Name'
     },
     {
       name: 'id',
@@ -73,26 +93,6 @@ export default {
           { title: '12', value: '12' }
         ]
       }
-    },
-    {
-      name: 'commonName',
-      type: 'string',
-      title: 'Common Name'
-    },
-    {
-      name: 'variety',
-      type: 'string',
-      title: 'Variety'
-    },
-    {
-      name: 'regionalName',
-      type: 'string',
-      title: 'Regional Name'
-    },
-    {
-      name: 'botanicalName',
-      type: 'string',
-      title: 'Botanical Name'
     },
     {
       name: 'description',
