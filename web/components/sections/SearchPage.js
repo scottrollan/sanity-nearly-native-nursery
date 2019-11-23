@@ -69,6 +69,8 @@ class SearchPage extends Component {
     ]
   };
 
+  form =  [];
+
   handleChange = event => {
     event.preventDefault();
     const field = event.target.id;
@@ -83,6 +85,11 @@ class SearchPage extends Component {
     }));
     setTimeout(() => console.log(field + ": " + this.state[field]), 1000);
   };
+
+  handleSearchByName = () => {
+    name = this.state.search_name;
+    console.log("this is what will be sent to the search query: " + name.toLowerCase());
+  }
   render() {
     return (
       <section>
@@ -96,17 +103,23 @@ class SearchPage extends Component {
             onChange={this.handleChange}
             style={{ backgroundColor: '#e3e3e3', padding: '0 8px', height: '22px' }}
           ></input>
+          <button 
+            type="submit"
+            id="searchByName"
+            onClick={this.handleSearchByName}
+            >Search By Name
+          </button>
           <hr />
           <h4>...or by Growing Conditions</h4>
 
           <div
             id="conditionsDiv"
-            // style={{
-            //     width: '80%',
-            //     margin: "0 10% 1vh",
-            //     textAlign: "left", 
-            //     fontSize: '1.8vw'
-            // }}
+            style={{
+                width: '80%',
+                margin: "0 10% 1vh",
+                textAlign: "left", 
+                fontSize: '1.8vw'
+            }}
           >
           {this.state.growingConditions.map(c => (
 
@@ -143,6 +156,7 @@ class SearchPage extends Component {
             </span>
           ))}
         </div>
+        
         <div style={{ clear: 'both' }}>
         </div>
         <div>            
@@ -199,9 +213,7 @@ class SearchPage extends Component {
         </div>
         <style jsx>
           {`
-            section {
-              text-align: left;
-            }
+
             h4, h5, hr {
               margin: 30px 0 10px;
             }

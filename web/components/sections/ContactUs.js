@@ -8,7 +8,7 @@ const ContactUs = (props) => {
     return (
         <div className={styles.root}>
         <section className={styles.article}>        
-        <form name="contact" method="POST" data-netlify="true">
+        <form name="contact" method="POST" netlify>
             <div style={{ width: "50%" }}>
               <select name="subject[]"  required='required' selected='default'>
                 <option value="default" disabled>Select...</option>
