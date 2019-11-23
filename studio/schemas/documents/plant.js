@@ -26,7 +26,9 @@ export default {
           { title: 'Perennials', value: 'perennials' },
           { title: 'Grasses', value: 'grasses' },
           { title: 'Ferns', value: 'ferns' },
-          { title: 'Vines', value: 'vines' }
+          { title: 'Vines', value: 'vines' },
+          { title: 'Seeds', value: 'seeds' },
+          { title: 'Yucca', value: 'yucca' }
         ]
       }
     },
