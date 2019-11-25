@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import SearchName from '../searchNameFunction';
 
 class SearchPage extends Component {
   state = {
@@ -103,12 +104,9 @@ class SearchPage extends Component {
             onChange={this.handleChange}
             style={{ backgroundColor: '#e3e3e3', padding: '0 8px', height: '22px' }}
           ></input>
-          <button 
-            type="submit"
-            id="searchByName"
-            onClick={this.handleSearchByName}
-            >Search By Name
-          </button>
+          <SearchName
+            value={this.state.search_name} 
+          />
           <hr />
           <h4>...or by Growing Conditions</h4>
 
