@@ -1,26 +1,25 @@
 import React, { Component } from 'react'
 
-
-const sanityClient = require('@sanity/client')
-    
-const client = sanityClient({
-    projectId: 'ogg4t6rs',
-    dataset: 'plant',
-    useCdn: true // `false` if you want to ensure fresh data
-})
-const query = 
-`*[_type == "plant" && botanicalName == $keyword] {botanicalName, commonName}`
-const params = "{keyword: event.target.value}"
-
 class searchNameFunction extends Component {
 
 
     searchNow = (event) => {
-        event.preventDefault();
-        client.fetch(query, params).then(plant => {
+        let inputText = event.target.value.toLowerCase();
+        let botanicalInput = inputText.replace(/^\w/, c => c.toUpperCase());
+        let commonInput = inputText.split(' ').map((i) => i.replace(/^\w/, c => c.toUpperCase())).join(' ');
+        const sanityClient = require('@sanity/client')    
+        const client = sanityClient({
+            projectId: 'ogg4t6rs',
+            dataset: 'production',
+            token: '',
+            useCdn: true // `false` if you want to ensure fresh data
+        })
+        const query = 
+            `*[botanicalName match "${botanicalInput}" || commonName match "${commonInput}"]{botanicalName, variety, commonName} | order(category asc) | order(botanicalName asc)`
+        client.fetch(query).then(plants => {
         console.log('Plants that match this search:')
-        plant.forEach(plant => {
-            console.log(`${plant.botanicalName} a.k.a: "${plant.commonName}"`)
+        plants.forEach(p => {
+            console.log(`${p.botanicalName} ${p.variety}, a.k.a: "${p.commonName}"`)
         })
         })
     }
