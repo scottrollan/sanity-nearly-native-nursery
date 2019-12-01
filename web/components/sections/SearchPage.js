@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import SearchName from '../searchNameFunction';
+import SearchNameInput from './SearchNameInput';
+import SearchResults from './SearchResults'
 
 class SearchPage extends Component {
   state = {
@@ -67,10 +68,10 @@ class SearchPage extends Component {
         choice3: 'foliage_deciduous',
         choice3Name: 'deciduous'
       }
-    ]
+    ],
+    form:  [],
   };
 
-  form =  [];
 
   handleChange = event => {
     event.preventDefault();
@@ -87,10 +88,29 @@ class SearchPage extends Component {
     setTimeout(() => console.log(field + ": " + this.state[field]), 1000);
   };
 
-  handleSearchByName = () => {
-    name = this.state.search_name;
-    console.log("this is what will be sent to the search query: " + name.toLowerCase());
+  searchNow = (event) => {
+    let inputText = event.target.value.toLowerCase();
+    let botanicalInput = inputText.replace(/^\w/, c => c.toUpperCase()); // capitalize first letter of first word only
+    let commonInput = inputText.split(' ').map((i) => i.replace(/^\w/, c => c.toUpperCase())).join(' '); //capitalize first letter of every word
+    let form = [];
+    const sanityClient = require('@sanity/client')    
+    const client = sanityClient({
+        projectId: 'ogg4t6rs',
+        dataset: 'production',
+        token: '',
+        useCdn: true // `false` if you want to ensure fresh data
+    })
+    const query = 
+        `*[botanicalName match "${botanicalInput}" || commonName match "${commonInput}"] | order(category asc) | order(botanicalName asc)`
+    client.fetch(query).then(plants => {
+    plants.forEach(p => {
+        form.push(p);
+    })
+    this.setState({ form: form });
+    console.log(this.state.form);
+    });
   }
+  
   render() {
     return (
       <section>
@@ -104,8 +124,10 @@ class SearchPage extends Component {
             onChange={this.handleChange}
             style={{ backgroundColor: '#e3e3e3', padding: '0 8px', height: '22px' }}
           ></input>
-          <SearchName
+          <SearchNameInput
             value={this.state.search_name} 
+            form={this.state.form}
+            searchNow={this.searchNow}
           />
           <hr />
           <h4>...or by Growing Conditions</h4>
@@ -209,6 +231,11 @@ class SearchPage extends Component {
 
           <a href="/search"><button id="plantFind">Find My Plants</button></a>
         </div>
+        <SearchResults 
+          resultsArray={this.state.form}
+          
+        />
+
         <style jsx>
           {`
 
@@ -248,6 +275,17 @@ class SearchPage extends Component {
               color: #7d62b2;
               background-color: #e3e3e3;
             }
+            .card {
+              border: 1px solid #999999;
+              width: 80%;
+              margin: 10px 10%;
+              box-shadow: 5px 10px 5px #888888;
+              box-sizing: border-box;
+          }
+          .card-body {
+              padding: 1vh;
+              text-align: center;
+          }
             @media screen and (max-width: 960px) {
               .col5Float {
                 margin: 0 0 20px 0;
@@ -255,6 +293,10 @@ class SearchPage extends Component {
                 display: inline-block;
                 width: 33.3330%;
                 font-size: 3vw;
+              }
+              .card {
+                width: 95%;
+                margin: 10px 2.5%;
               }
             }
 
