@@ -10,12 +10,12 @@ class SearchResults extends Component {
         document.getElementById(whichPlantModal).classList.remove('showModal')
     }
 
-    keepReading = (whichDescr) => {
+    expandDescr = (whichDescr) => {
         document.getElementById(`short${whichDescr}`).style.display = 'none';
         document.getElementById(`long${whichDescr}`).style.display = 'inline';
     }    
    
-    closeReading = (whichDescr) => {
+    collapseDescr = (whichDescr) => {
         document.getElementById(`long${whichDescr}`).style.display = 'none';
         document.getElementById(`short${whichDescr}`).style.display = 'inline';
     }
@@ -23,7 +23,7 @@ class SearchResults extends Component {
     render(props) {
         return(
 
-            <div id="results">
+            <div id="results" style={{ }}>
             { this.props.resultsArray === undefined || this.props.resultsArray.length == 0
             ?  (<p>No results. Try again.</p>)
             : (
@@ -50,51 +50,51 @@ class SearchResults extends Component {
                     <div className="modal" id={`${modalId}`}>
                         <div className="modalContent">
                             <h4>{d.commonName}</h4>
-                            <h5>{d.botanicalName} {d.variety}</h5>
+                            <h5><i>{d.botanicalName} {d.variety}</i></h5>
                             { d.regionalName 
                             ? (<h5>Regional Name: {d.regionalName}</h5>)
                             : (null) }
                             <p>{descIntro}
-                            <span id={`short${modalId}`}>... <button onClick={() => this.keepReading(`${modalId}`)}>keep reading</button></span>
-                            <span id={`long${modalId}`} style={{ display: 'none' }}> {descEnding}  <button onClick={() => this.closeReading(`${modalId}`)}>see less</button></span></p>
+                            <span id={`short${modalId}`}>... <button onClick={() => this.expandDescr(`${modalId}`)}>keep reading</button></span>
+                            <span id={`long${modalId}`} style={{ display: 'none' }}> {descEnding}  <button onClick={() => this.collapseDescr(`${modalId}`)}>see less</button></span></p>
                             <p>{d.notes}</p>
                             <p>Thrives from zone {d.lowZone} to zone {d.highZone}.</p>
                             <div className="row" style={{ width: '100%' }}>
                                 <div className="list">
                                 <ul>Soil types:</ul>
-                                {d.soilType.map(type => (
-                                    <li>{type}</li>
+                                {d.soilType.map((type, index) => (
+                                    <li key={index}>{type}</li>
                                 ))}   
                                 </div>  
                                 <div className="list">                           
                                 <ul>Soil Ph:</ul>
-                                {d.soilPH.map(ph => (
-                                    <li>{ph}</li>
+                                {d.soilPH.map((ph, index) => (
+                                    <li key={index}>{ph}</li>
                                 ))}  
                                 </div>  
                                 <div className="list">                                
                                 <ul>Water level:</ul>
-                                {d.waterLevel.map(water => (
-                                    <li>{water}</li>
+                                {d.waterLevel.map((water, index) => (
+                                    <li key={index}>{water}</li>
                                 ))}                                
                                 </div>  
                             </div>
                             <div className="row" style={{ width: '100%' }}>
                                 <div className="list">                                
                                 <ul>Sun exposure:</ul>
-                                {d.sunlightLevel.map(sun => (
-                                    <li>{sun}</li>
+                                {d.sunlightLevel.map((sun, index) => (
+                                    <li key={index}>{sun}</li>
                                 ))}                                
                                 </div>  
                                 <div className="list">                                  
                                 <ul>Foliage:</ul>
-                                {d.foliage.map(f => (
-                                    <li>{f}</li>
+                                {d.foliage.map((f, index) => (
+                                    <li key={index}>{f}</li>
                                 ))}
                                 </div>  
                                 <div className="list"> 
-                                { file == "a3d829ee02102d79da412cf8fe5f0fac1577254c-175x188" || file === undefined //if the image is the placeholder image or there is no image, then don't show anything
-                                ? (null)
+                                { file == "a3d829ee02102d79da412cf8fe5f0fac1577254c-175x188" || file === undefined //if the image is the placeholder image or there is no image, it is not clickable
+                                ? (<div style={{ width: '100px', height: '100px', margin: '0 calc(50% - 50px)', backgroundImage: `url("${imageUrl}?w=100&max-h=100")`, backgroundRepeat: 'no-repeat', clear: 'both' }}></div>)
                                 : (<a href={`${imageUrl}`} target="_blank"><div style={{ width: '100px', height: '100px', margin: '0 calc(50% - 50px)', backgroundImage: `url("${imageUrl}?w=100&max-h=100")`, backgroundRepeat: 'no-repeat', clear: 'both' }}></div></a>)
                                 }
                                 </div>
@@ -102,18 +102,18 @@ class SearchResults extends Component {
                             <div className="row" style={{ width: '100%' }}>
                                 <div className="list">
                                 <ul>Container Size</ul>
-                                {d.amount.map(p => (
-                                    <li>{p.containerSize}</li>
+                                {d.amount.map((p, index) => (
+                                    <li key={index}>{p.containerSize}</li>
                                 ))}   
                                 </div>  
                                 <div className="list">                           
                                 <ul>Price</ul>
-                                {d.amount.map(p => (
-                                    <li>${p.price.toFixed(2)}</li>
+                                {d.amount.map((p, index) => (
+                                    <li key={index}>${p.price}</li>
                                 ))}  
                                 </div> 
                                 <div className="list">
-                                <button className="closeButton" onClick={() => this.closeModal(`${modalId}`)}>Close</button>
+                                    <button className="closeButton" onClick={() =>this.closeModal(`${modalId}`)}>Close</button>
                                 </div>
                             </div>
                         </div> 
@@ -126,9 +126,7 @@ class SearchResults extends Component {
                 )}
                 <style jsx>
                     {`
-                    #results {
-                        padding-top: 20px;
-                    }
+
                     .card {
                         border: 1px solid #999999;
                         width: 80%;
@@ -167,6 +165,9 @@ class SearchResults extends Component {
                         overflow-y: auto
                     }
                     .closeButton {
+                        position: absolute;
+                        right: 12px;
+                        top: 12px;
                         line-height: 1.5rem;
                         padding: 2px 8px;
                         text-align: center;
@@ -203,6 +204,7 @@ class SearchResults extends Component {
                         display: table;
                         clear: both;
                     }
+                                        
                     `}
                 </style>
             </div>
