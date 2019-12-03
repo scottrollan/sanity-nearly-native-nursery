@@ -7,7 +7,7 @@ class ContactUs extends Component {
     return (
       <div className={styles.root}>
         <section className={styles.article}>
-          <form form-name="contact" netlify>
+          <form form-name="contactCustom" netlify>
             <div style={{ width: "50%" }}>
               <select name="subject[]" required="required" selected="default">
                 <option value="default" disabled>
@@ -97,11 +97,11 @@ class ContactUs extends Component {
                 style={{ width: "45%" }}
               ></textarea>
             </div>
-            <div>
+            {/* <div>
               <label htmlFor="fileUpload">File input</label>
               <input type="file" id="fileUpload" />
             </div>
-            <div data-netlify-recaptcha="true" style={{ maxWidth: "75% !important" }}></div>
+            <div data-netlify-recaptcha="true" style={{ maxWidth: "75% !important" }}></div> */}
 
             <button type="submit" className="btn btn-secondary">
               Submit

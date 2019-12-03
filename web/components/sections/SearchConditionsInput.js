@@ -189,12 +189,11 @@ class SearchConditionsInput extends Component {
               <option value="Yucca">Yucca</option>
             </select>
           </div>
-        </div>
 
-  {/* NOT FOR USE UNLESS/UNTIL lowZone and highZone ARE CONVERTED TO NUMBER FIELDS */}
-          {/* <div>
+          {/* NOT FOR USE UNLESS/UNTIL lowZone and highZone ARE CONVERTED TO NUMBER FIELDS */}
+          {/* <div className="adaptiveCol">
             <label htmlFor="zone">
-              <h5 style={{ clear: "both" }}>USDA Hardiness Zone</h5>
+            <div style={{ textDecoration: "underline" }}>Hardiness Zone</div>
             </label>
             <select
               type="number"
@@ -219,10 +218,12 @@ class SearchConditionsInput extends Component {
             </select>
             <a href="https://garden.org/nga/zipzone/" target="_blank">
               <h6 style={{ display: "inline-block", margin: "0 10px" }}>
-                <u>What's My USDA Hardiness Zone?</u>
+                <u>What's My Hardiness Zone?</u>
               </h6>
             </a>
-        </div> */}
+          </div> */}
+        </div>
+
 
         <button
           className="condButton"
