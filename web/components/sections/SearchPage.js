@@ -18,7 +18,7 @@ class SearchPage extends Component {
         useCdn: true // `false` if you want to ensure fresh data
     })
     const query = 
-        `*${filters} | order(category asc) | order(botanicalName asc)`
+        `*[${filters}] | order(category asc) | order(botanicalName asc)`
 
     client.fetch(query).then(plants => {
     plants.forEach(p => {
