@@ -83,7 +83,7 @@ class SearchConditionsInput extends Component {
   };
 
   searchByConditions = event => {
-    let params = "";
+    let filters = "";
     let form = [
       { name: "acid", array: "soilPH", value: this.state.soilPH_acid },
       { name: "neutral", array: "soilPH", value: this.state.soilPH_neutral },
@@ -108,24 +108,25 @@ class SearchConditionsInput extends Component {
       if (cond.value === false || cond.value === "any") {
         //ignores all selections not made
         null;
-        // } else if (cond.name === "zone" && params === "") { //deals with numeric "zone" selection as first selection
-        //   params = `lowZone <= ${cond.value} && highZone >= ${cond.value}`;
-        // } else if (cond.name === "zone" && params != "") { //deals with numeric "zone" selection as a subsequent selection
-        //   params = ` && lowZone <= ${cond.value} && highZone >= ${cond.value}`;
-      } else if (cond.value === true && params === "") {
+        // } else if (cond.name === "zone" && filters === "") { //deals with numeric "zone" selection as first selection
+        //   filters = `lowZone <= ${cond.value} && highZone >= ${cond.value}`;
+        // } else if (cond.name === "zone" && filters != "") { //deals with numeric "zone" selection as a subsequent selection
+        //   filters = ` && lowZone <= ${cond.value} && highZone >= ${cond.value}`;
+      } else if (cond.value === true && filters === "") {
         //the first selected checkbox
-        params = `"${cond.name}" in ${cond.array}`; //ex: "evergreen" in foliage
-      } else if (cond.value === true && params != "") {
+        filters = `"${cond.name}" in ${cond.array}`; //ex: "evergreen" in foliage
+      } else if (cond.value === true && filters != "") {
         //all subseqent selected checkboxes
-        params = params.concat(` && "${cond.name}" in ${cond.array}`);
-      } else if (params === "") {
-        params = `${cond.name} == '${cond.value}'`;
+        filters = filters.concat(` && "${cond.name}" in ${cond.array}`);
+      } else if (filters === "") {
+        filters = `${cond.name} == '${cond.value}'`;
       } else {
-        params = params.concat(` && ${cond.name} == '${cond.value}'`);
+        filters = filters.concat(` && ${cond.name} == '${cond.value}'`);
       }
-      return params;
+      return filters;
     });
-    this.props.searchByConditions(params);
+    console.log(filters);
+    this.props.searchByConditions(filters);
   };
 
   render() {
@@ -241,12 +242,11 @@ class SearchConditionsInput extends Component {
             #checkboxDiv {
               width: 80%;
               margin: 0 10% 1vh;
-              textalign: left;
             }
             .adaptiveCol {
               display: inline-block;
               margin: 15px 0;
-              width: 22%;
+              width: 25%;
               text-align: left;
               font-size: calc(12px + .6vw);
               vertical-align: top;
@@ -269,16 +269,15 @@ class SearchConditionsInput extends Component {
               color: #7d62b2;
               background-color: #e3e3e3;
             }
-            @media screen and (max-width: 960px) {
-              .adaptiveCol {
-                margin: 10px 0;
-                width: 40%;
-
+            @media screen and (max-width: 780px) {
+              #checkboxDiv {
+                width: 94%;
+                margin: 0 3%;
               }
-              @media screen and (max-width: 640px) {
-                .adaptiveCol {
-                  font-size: 2.8vw;
-                }
+              .adaptiveCol {
+                width: 33%;
+                font-size: 12px;
+              }
             }
           `}
         </style>
