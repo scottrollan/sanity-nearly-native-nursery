@@ -41,7 +41,7 @@ class SearchResults extends Component {
 
         {this.props.resultsArray === undefined || this.props.resultsArray.length == 0
           ? null
-          : this.props.resultsArray.map((d) => {
+          : this.props.resultsArray.map((d, index) => {
               const imageArray = d.image.asset._ref.split("-"); //splits _ref into an array of length 4
               const file = `${imageArray[1]}-${imageArray[2]}.${imageArray[3]}`; //gives image <image id>-<original size>.<extension>
               const imageUrl = `https://cdn.sanity.io/images/ogg4t6rs/production/${file}`; //gets original image url
@@ -54,10 +54,20 @@ class SearchResults extends Component {
                 .split(" ")
                 .slice(21)
                 .join(" "); //21st through the last word
+              const description = d.description.split(" ");
 
               return (
-                <div className="card" key={d._id}>
-                  <div className="cardBody">
+                <div 
+                    className="card" 
+                    key={d._id} 
+                    style={{
+                        backgroundColor: index % 2 ==0 ? '#eeeeee' : '#ffffff'
+                      }}
+                    >
+                  <div 
+                  className="cardBody"
+
+                  >
                     <h3 className="cardCommon">{d.commonName}</h3>
                     <i>
                       <h4 className="cardBotanical">
@@ -78,9 +88,12 @@ class SearchResults extends Component {
                         ></div>
                       </a>
                     )}
+
                     <button className="trigger" onClick={() => this.openModal(`${modalId}`)}>
                       See Details
                     </button>
+
+
                     {/* MODAL STARTS HERE */}
                     <div className="modal" id={`${modalId}`}>
                       <div className="modalContent">
