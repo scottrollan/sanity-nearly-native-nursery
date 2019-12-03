@@ -34,7 +34,7 @@ class SearchPage extends Component {
     }
     });
   }
-  
+
   render() {
     return (
       <div>
