@@ -7,8 +7,8 @@ class SearchPage extends Component {
   state = {
         form:  [],
   };
-  searchNow = (params) => {
-    this.setState({ form: [] });
+  searchNow = (filters) => {
+    this.setState({ form: [] }); //resets state.form for new search
     let form = [];
     const sanityClient = require('@sanity/client')    
     const client = sanityClient({
@@ -18,7 +18,7 @@ class SearchPage extends Component {
         useCdn: true // `false` if you want to ensure fresh data
     })
     const query = 
-        `*[${params}] | order(category asc) | order(botanicalName asc)`
+        `*${filters} | order(category asc) | order(botanicalName asc)`
 
     client.fetch(query).then(plants => {
     plants.forEach(p => {
@@ -42,12 +42,12 @@ class SearchPage extends Component {
         <div style={{ textAlign: "center" }}>
             <h4>Search Botanical Name or Common Name: &nbsp;</h4>
           <SearchNameInput
-            searchByName={(params) => this.searchNow(params)}
+            searchByName={(filters) => this.searchNow(filters)}
           />
           <hr />
           <h4>...or by Growing Conditions</h4>
           <SearchConditionsInput
-            searchByConditions={(params) => this.searchNow(params)}
+            searchByConditions={(filters) => this.searchNow(filters)}
           />
         </div>
         </section>

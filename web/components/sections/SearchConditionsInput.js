@@ -239,7 +239,7 @@ class SearchConditionsInput extends Component {
               margin: 30px 0 10px;
             }
             #checkboxDiv {
-              width: 100%;
+              width: 80%;
               margin: 0 10% 1vh;
               textalign: left;
             }
@@ -272,7 +272,7 @@ class SearchConditionsInput extends Component {
             @media screen and (max-width: 960px) {
               .adaptiveCol {
                 margin: 10px 0;
-                width: 35%;
+                width: 40%;
 
               }
               @media screen and (max-width: 640px) {

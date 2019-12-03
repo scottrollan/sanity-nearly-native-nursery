@@ -12,8 +12,8 @@ class searchNameInput extends Component {
       .split(" ")
       .map(i => i.replace(/^\w/, c => c.toUpperCase())) //capitalize first letter of every word
       .join(" ");
-    const params = `botanicalName match "${botanicalInput}" || commonName match "${commonInput}"`;
-    this.props.searchByName(params);
+    const filters = `botanicalName match "${botanicalInput}" || commonName match "${commonInput}"`;
+    this.props.searchByName(filters);
   };
 
   handleChange = event => {
