@@ -12,7 +12,7 @@ import plant from './documents/plant';
 
 // Object types
 import amount from './objects/amount';
-import contactUs from './objects/contactUs';
+// import contactUs from './objects/contactUs';
 import cta from './objects/cta';
 import embedHTML from './objects/embedHTML';
 import figure from './objects/figure';
@@ -38,7 +38,7 @@ export default createSchema({
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
-    contactUs,
+    // contactUs,
     cta,
     embedHTML,
     figure,
