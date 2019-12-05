@@ -75,7 +75,9 @@ class SearchResults extends Component {
                       </h4>
                     </i>
                     {file == "a3d829ee02102d79da412cf8fe5f0fac1577254c-175x188.png" ||
-                    file === undefined ? null : ( //if the image is the placeholder image or there is no image, then don't show anything
+                    file === undefined 
+                    ?   null
+                      : ( 
                       <a href={`${imageUrl}`} target="_blank">
                         <div
                           style={{
@@ -196,6 +198,16 @@ class SearchResults extends Component {
                             {d.amount.map((p, index) => (
                               <li key={index}>${p.price}</li>
                             ))}
+                          </div>
+                          <div className="oneThirdBlock">
+                            <a href={`http://www.google.com/search?q=${d.botanicalName} ${d.variety}&tbm=isch`} target="_blank">
+                            <button
+                              style={{
+                                width: "100px",
+                                height: "auto",
+                                margin: "0 calc(50% - 50px)",
+                              }}
+                            >Search for {d.botanicalName} on Google Images</button></a> 
                           </div>
 
                           <div className="oneThirdBlock">

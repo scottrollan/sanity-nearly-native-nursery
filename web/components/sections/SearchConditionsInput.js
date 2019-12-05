@@ -17,8 +17,8 @@ class SearchConditionsInput extends Component {
     foliage_evergreen: false,
     foliage_semievergreen: false,
     foliage_deciduous: false,
-    zone: "any",
-    category: "any",
+    zone: 0,
+    category: "",
     conditionsOptions: [
       {
         title: "Soil Ph",
@@ -105,24 +105,25 @@ class SearchConditionsInput extends Component {
     ];
 
     form.map(cond => {
-      if (cond.value === false || cond.value === "any") {
-        //ignores all selections not made
-        null;
-        // } else if (cond.name === "zone" && filters === "") { //deals with numeric "zone" selection as first selection
-        //   filters = `lowZone <= ${cond.value} && highZone >= ${cond.value}`;
-        // } else if (cond.name === "zone" && filters != "") { //deals with numeric "zone" selection as a subsequent selection
-        //   filters = ` && lowZone <= ${cond.value} && highZone >= ${cond.value}`;
-      } else if (cond.value === true && filters === "") {
-        //the first selected checkbox
-        filters = `"${cond.name}" in ${cond.array}`; //ex: "evergreen" in foliage
-      } else if (cond.value === true && filters != "") {
-        //all subseqent selected checkboxes
-        filters = filters.concat(` && "${cond.name}" in ${cond.array}`);
-      } else if (filters === "") {
-        filters = `${cond.name} == '${cond.value}'`;
-      } else {
-        filters = filters.concat(` && ${cond.name} == '${cond.value}'`);
+      if(cond.value === false || cond.value === null){
+        null
       }
+      if (filters != "" && cond.value != false && cond.value != null) {//if filters has a value already and a selection is made
+        filters = filters.concat(" && ");
+      }
+      if (cond.value === true) {//selected checkbox
+        filters = filters.concat(`"${cond.name}" in ${cond.array}`); //ex: "evergreen" in foliage
+      }
+      if(cond.name === "category" && cond.value != "") {
+        filters = filters.concat(`${cond.name} == '${cond.value}'`); //ex: category == 'shrubs'
+      } 
+      if (cond.name === "zone" && cond.value > 0) { //deals with numeric "zone" selection
+        filters = filters.concat(`lowZone <= ${cond.value} && highZone >= ${cond.value}`); //selection zone is between low and high zones
+      }
+
+    
+  
+  
       return filters;
     });
       console.log(filters);
@@ -176,7 +177,7 @@ class SearchConditionsInput extends Component {
               value={this.state.category}
               onChange={this.handleChange}
             >
-              <option value="any">--any--</option>
+              <option value=''>--any--</option>
               <option value="Ferns">Ferns</option>
               <option value="Grasses">Grasses</option>
               <option value="Opuntia">Opuntia</option>
@@ -191,7 +192,7 @@ class SearchConditionsInput extends Component {
           </div>
 
           {/* NOT FOR USE UNLESS/UNTIL lowZone and highZone ARE CONVERTED TO NUMBER FIELDS */}
-          {/* <div className="adaptiveCol">
+          <div className="adaptiveCol">
             <label htmlFor="zone">
             <div style={{ textDecoration: "underline" }}>Hardiness Zone</div>
             </label>
@@ -202,7 +203,7 @@ class SearchConditionsInput extends Component {
               onChange={this.handleChange}
               style={{ display: "inline-block", margin: "0 10px" }}
             >
-              <option value="any">--any--</option>
+              <option value={0}>--any--</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -221,16 +222,15 @@ class SearchConditionsInput extends Component {
                 <u>What's My Hardiness Zone?</u>
               </h6>
             </a>
-          </div> */}
+          </div>
         </div>
 
 
         <button
           className="condButton"
-          onClick={event => this.searchByConditions(event)}
-          type="submit"
           id="searchByConditions"
-        >
+          onClick={event => this.searchByConditions(event)}
+          type="submit">
           Find My Plants
         </button>
         <style jsx>
@@ -253,7 +253,7 @@ class SearchConditionsInput extends Component {
               vertical-align: top;
             }
             .condButton {
-              width: 38%;
+              width: 100%;
               text-align: center;
               padding: 15px 0;
               margin: 20px 0;
@@ -269,7 +269,9 @@ class SearchConditionsInput extends Component {
             .condButton:hover {
               color: #7d62b2;
               background-color: #e3e3e3;
+              cursor: pointer;
             }
+
             @media screen and (max-width: 780px) {
               #checkboxDiv {
                 width: 94%;
