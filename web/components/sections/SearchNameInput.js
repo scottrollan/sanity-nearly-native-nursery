@@ -36,7 +36,7 @@ class searchNameInput extends Component {
             style={{ backgroundColor: "#e3e3e3", padding: "0 8px", height: "22px" }}
           ></input>
         </div>
-
+      
         <button
           className="nameButton"
           onClick={event => this.searchByName(event)}
