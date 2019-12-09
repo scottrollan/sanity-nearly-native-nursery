@@ -207,7 +207,7 @@ class SearchResults extends Component {
                                 height: "auto",
                                 margin: "0 calc(50% - 50px)",
                               }}
-                            >Search for {d.botanicalName} on Google Images</button></a> 
+                            >{d.botanicalName} on Google Images</button></a> 
                           </div>
 
                           <div className="oneThirdBlock">

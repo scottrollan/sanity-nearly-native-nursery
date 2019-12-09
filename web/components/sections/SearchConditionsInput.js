@@ -253,7 +253,7 @@ class SearchConditionsInput extends Component {
               vertical-align: top;
             }
             .condButton {
-              width: 100%;
+              width: 38%;
               text-align: center;
               padding: 15px 0;
               margin: 20px 0;
