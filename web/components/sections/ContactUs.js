@@ -7,7 +7,7 @@ class ContactUs extends Component {
     return (
       <div className={styles.root}>
         <section className={styles.article}>
-          <form form-name="contactCustom" netlify>
+          <form name="contactCustom" netlify>
             <div style={{ width: "50%" }}>
               <select name="subject[]" required="required" selected="default">
                 <option value="default" disabled>

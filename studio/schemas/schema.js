@@ -12,7 +12,7 @@ import plant from './documents/plant';
 
 // Object types
 import amount from './objects/amount';
-// import contactUs from './objects/contactUs';
+import contactUs from './objects/contactUs';
 import cta from './objects/cta';
 import embedHTML from './objects/embedHTML';
 import figure from './objects/figure';

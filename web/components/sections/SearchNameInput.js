@@ -35,8 +35,12 @@ class searchNameInput extends Component {
             onChange={this.handleChange}
             style={{ backgroundColor: "#e3e3e3", padding: "0 8px", height: "22px" }}
           ></input>
+        </div>        
+        <div className="wrapper">
+          <div className="bg">
+            <div className="el">Search By Name</div>
+          </div>
         </div>
-      
         <button
           className="nameButton"
           onClick={event => this.searchByName(event)}
@@ -63,7 +67,7 @@ class searchNameInput extends Component {
             }
             .nameButton:hover {
               color: #7d62b2;
-              background-color: #e3e3e3;
+              background-color: #c3c3c3;
             }
           `}
         </style>
