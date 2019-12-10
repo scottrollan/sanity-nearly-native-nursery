@@ -19,10 +19,9 @@ export default {
       type: 'array',
       title: 'Page sections',
       of: [
-        { type: 'contactUs' },
+        // { type: 'contactUs' },
         { type: 'hero' },
         { type: 'imageSection' },
-        // { type: 'imageOnly' },
         { type: 'mailchimp' },
         { type: 'orderForm'},
         { type: 'socialMedia' },

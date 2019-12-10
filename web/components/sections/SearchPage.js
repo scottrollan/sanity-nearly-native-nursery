@@ -24,7 +24,8 @@ class SearchPage extends Component {
     plants.forEach(p => {
         form.push(p);
         this.setState({ form: form });
-    })
+    })  
+
     if(this.state.form === undefined || this.state.form.length === 0 ) {
       alert('...no plants match those specifications...');
     }else{
@@ -33,6 +34,7 @@ class SearchPage extends Component {
       location.href = '#resultsArea';
     }
     });
+    console.log(form);
   }
 
   render() {

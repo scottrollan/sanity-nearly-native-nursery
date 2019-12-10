@@ -3,11 +3,12 @@ import ToTopButton from "../ScrollToTop";
 
 class SearchResults extends Component {
   openModal = whichPlantModal => {
+    document.getElementById(whichPlantModal).classList.remove("hideModal");
     document.getElementById(whichPlantModal).classList.add("showModal");
   };
 
-  closeModal = whichPlantModal => {
-    document.getElementById(whichPlantModal).classList.remove("showModal");
+  hideModal = whichPlantModal => {
+    document.getElementById(whichPlantModal).classList.add("hideModal");
   };
 
   expandDescr = whichDescr => {
@@ -39,12 +40,9 @@ class SearchResults extends Component {
           We found {this.props.resultsArray.length} items matching that criteria...
         </h5>
 
-        {this.props.resultsArray === undefined || this.props.resultsArray.length == 0
+        {this.props.resultsArray === null || this.props.resultsArray.length == 0
           ? null
           : this.props.resultsArray.map((d, index) => {
-              const imageArray = d.image.asset._ref.split("-"); //splits _ref into an array of length 4
-              const file = `${imageArray[1]}-${imageArray[2]}.${imageArray[3]}`; //gives image <image id>-<original size>.<extension>
-              const imageUrl = `https://cdn.sanity.io/images/ogg4t6rs/production/${file}`; //gets original image url
               const modalId = d._id;
               const descIntro = d.description
                 .split(" ")
@@ -54,47 +52,54 @@ class SearchResults extends Component {
                 .split(" ")
                 .slice(21)
                 .join(" "); //21st through the last word
-              const description = d.description.split(" ");
+              let imageUrl =
+                "https://cdn.sanity.io/images/ogg4t6rs/production/a3d829ee02102d79da412cf8fe5f0fac1577254c-175x188.png";
+              let hasUniqueImage = false;
+              if (d.image.asset == undefined ) {
+                null
+              }else if(d.image.asset._ref !="image-a3d829ee02102d79da412cf8fe5f0fac1577254c-175x188-png"){
+                hasUniqueImage = true;
+                const imageArray = d.image.asset._ref.split("-"); //splits _ref into an array of length 4
+                imageUrl = `https://cdn.sanity.io/images/ogg4t6rs/production/${imageArray[1]}-${imageArray[2]}.${imageArray[3]}`; //gives image <image id>-<original size>.<extension>
+              }
 
               return (
-                <div 
-                    className="card" 
-                    key={d._id} 
-                    style={{
-                        backgroundColor: index % 2 ==0 ? '#eeeeee' : '#ffffff'
-                      }}
-                    >
-                  <div 
-                  className="cardBody"
-
-                  >
+                <div
+                  className="card"
+                  key={d._id}
+                  style={{
+                    backgroundColor: index % 2 == 0 ? "#eeeeee" : "#ffffff"
+                  }}
+                >
+                  <div className="cardBody">
                     <h3 className="cardCommon">{d.commonName}</h3>
                     <i>
                       <h4 className="cardBotanical">
                         {d.botanicalName} {d.variety}
                       </h4>
+                      <p style={{ lineHeight: "1", fontSize: "small" }}>Category: {d.category}</p>
                     </i>
-                    {file == "a3d829ee02102d79da412cf8fe5f0fac1577254c-175x188.png" ||
-                    file === undefined 
-                    ?   null
-                      : ( 
-                      <a href={`${imageUrl}`} target="_blank">
-                        <div
-                          style={{
-                            width: "100px",
-                            height: "100px",
-                            margin: "0 calc(50% - 50px)",
-                            backgroundImage: `url("${imageUrl}?w=100&max-h=100")`,
-                            backgroundRepeat: "no-repeat"
-                          }}
-                        ></div>
-                      </a>
-                    )}
+                    {hasUniqueImage == true ? (
+                      <div
+                        style={{
+                          width: "100px",
+                          height: "110px",
+                          margin: "0 calc(50% - 50px)",
+                          backgroundImage: `url("${imageUrl}?w=100&fit=scale")`,
+                          backgroundRepeat: "no-repeat"
+                        }}
+                      ></div>
+                    ) : null}
 
-                    <button className="trigger" onClick={() => this.openModal(`${modalId}`)}>
+                    <button
+                      className="trigger"
+                      onClick={() => this.openModal(`${modalId}`)}
+                      style={{
+                        backgroundColor: index % 2 != 0 ? "#eeeeee" : "#ffffff"
+                      }}
+                    >
                       See Details
                     </button>
-
 
                     {/* MODAL STARTS HERE */}
                     <div className="modal" id={`${modalId}`}>
@@ -158,30 +163,34 @@ class SearchResults extends Component {
                             ))}
                           </div>
                           <div className="oneThirdBlock">
-                            {file == "a3d829ee02102d79da412cf8fe5f0fac1577254c-175x188" ||
-                            file === undefined ? ( //if the image is the placeholder image or there is no image, it is not clickable
-                              <div
-                                style={{
-                                  width: "100px",
-                                  height: "100px",
-                                  margin: "0 calc(50% - 50px)",
-                                  backgroundImage: `url("${imageUrl}?w=100&max-h=100")`,
-                                  backgroundRepeat: "no-repeat",
-                                  clear: "both"
-                                }}
-                              ></div>
-                            ) : (
+                            {hasUniqueImage == true ? (
+                              //if it has a unique image, it is clickable
                               <a href={`${imageUrl}`} target="_blank">
                                 <div
                                   style={{
                                     width: "100px",
-                                    height: "100px",
+                                    height: "110px",
                                     margin: "0 calc(50% - 50px)",
-                                    backgroundImage: `url("${imageUrl}?w=100&max-h=100")`,
-                                    backgroundRepeat: "no-repeat",
-                                    clear: "both"
+                                    backgroundImage: `url("${imageUrl}?w=100&fit=scale")`,
+                                    backgroundRepeat: "no-repeat"
                                   }}
                                 ></div>
+                              </a>
+                            ) : (
+                              //if there is a placeholder image, find it on google images
+                              <a
+                                href={`http://www.google.com/search?q=${d.botanicalName} ${d.variety}&tbm=isch`}
+                                target="_blank"
+                              >
+                                <button
+                                  style={{
+                                    width: "100px",
+                                    height: "auto",
+                                    margin: "0 calc(50% - 50px)"
+                                  }}
+                                >
+                                  {d.botanicalName} on Google Images
+                                </button>
                               </a>
                             )}
                           </div>
@@ -199,21 +208,12 @@ class SearchResults extends Component {
                               <li key={index}>${p.price}</li>
                             ))}
                           </div>
-                          <div className="oneThirdBlock">
-                            <a href={`http://www.google.com/search?q=${d.botanicalName} ${d.variety}&tbm=isch`} target="_blank">
-                            <button
-                              style={{
-                                width: "100px",
-                                height: "auto",
-                                margin: "0 calc(50% - 50px)",
-                              }}
-                            >{d.botanicalName} on Google Images</button></a> 
-                          </div>
+
 
                           <div className="oneThirdBlock">
                             <button
                               className="closeButton"
-                              onClick={() => this.closeModal(`${modalId}`)}
+                              onClick={() => this.hideModal(`${modalId}`)}
                             >
                               Close
                             </button>
@@ -256,8 +256,8 @@ class SearchResults extends Component {
                         line-height: var(--font-title3-line-height);
                     }
                     button:hover {
-                        color: #7d62b2;
-                        background-color: #e3e3e3;
+                        color: white;
+                        background-color: #444444 !important;
                     }
                     .card {
                         border: 1px solid #999999;
@@ -268,6 +268,7 @@ class SearchResults extends Component {
                         padding: 0;
                         text-align: center;
                     }
+
                     .modal {
                         position: fixed;
                         left: 0;
@@ -313,6 +314,11 @@ class SearchResults extends Component {
                         visibility: visible;
                         transform: scale(1.0);
                         transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+                    }
+                    .hideModal {
+                      opacity: 0;
+                      visibility: hidden;
+                      transition: visibility 0s linear 0s, opacity 0.5s 0s, transform 0.5s;
                     }
                     .oneThirdBlock {
                         display: inline-block;
