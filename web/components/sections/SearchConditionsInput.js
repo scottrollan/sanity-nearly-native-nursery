@@ -100,8 +100,8 @@ class SearchConditionsInput extends Component {
       { name: "evergreen", array: "foliage", value: this.state.foliage_evergreen },
       { name: "semi-evergreen", array: "foliage", value: this.state.foliage_semievergreen },
       { name: "deciduous", array: "foliage", value: this.state.foliage_deciduous },
-      { name: "zone", value: this.state.zone },
-      { name: "category", value: this.state.category.toLowerCase() }
+      { name: "category", value: this.state.category },
+      { name: "zone", value: this.state.zone }
     ];
 
     form.map(cond => {
@@ -109,26 +109,25 @@ class SearchConditionsInput extends Component {
         null
       }
       if (filters != "" && cond.value != false && cond.value != null) {//if filters has a value already and a selection is made
-        filters = filters.concat(" && ");
+        filters = filters.concat(" && "); // adds " && " before the subsequent filter selection
       }
-      if (cond.value === true) {//selected checkbox
+      if (cond.value === true) {//deals with selected checkbox
         filters = filters.concat(`"${cond.name}" in ${cond.array}`); //ex: "evergreen" in foliage
       }
-      if(cond.name === "category" && cond.value != "") {
+      if(cond.name === "category" && cond.value != "") { // if a category is selected
         filters = filters.concat(`${cond.name} == '${cond.value}'`); //ex: category == 'shrubs'
       } 
       if (cond.name === "zone" && cond.value > 0) { //deals with numeric "zone" selection
-        filters = filters.concat(`lowZone <= ${cond.value} && highZone >= ${cond.value}`); //selection zone is between low and high zones
+        filters = filters.concat(`lowZone <= ${cond.value} && highZone >= ${cond.value}`); //selection zone is between low and high zones, or equal to one of them
       }
-
-    
-  
   
       return filters;
+
     });
-      console.log(filters);
+      console.log(`Sent to filters: ${filters}`);
       this.props.searchByConditions(filters);
   };
+  
 
   render() {
     return (
@@ -178,16 +177,16 @@ class SearchConditionsInput extends Component {
               onChange={this.handleChange}
             >
               <option value=''>--any--</option>
-              <option value="Ferns">Ferns</option>
-              <option value="Grasses">Grasses</option>
-              <option value="Opuntia">Opuntia</option>
-              <option value="Palms">Palms</option>
-              <option value="Perennials">Perennials</option>
-              <option value="Seeds">Seeds</option>
-              <option value="Shrubs">Shrubs</option>
-              <option value="Trees">Trees</option>
-              <option value="Vines">Vines</option>
-              <option value="Yucca">Yucca</option>
+              <option value="ferns">Ferns</option>
+              <option value="grasses">Grasses</option>
+              <option value="opuntia">Opuntia</option>
+              <option value="palms">Palms</option>
+              <option value="perennials">Perennials</option>
+              <option value="seeds">Seeds</option>
+              <option value="shrubs">Shrubs</option>
+              <option value="trees">Trees</option>
+              <option value="vines">Vines</option>
+              <option value="yucca">Yucca</option>
             </select>
           </div>
 

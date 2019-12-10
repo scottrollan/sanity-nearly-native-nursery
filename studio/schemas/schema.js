@@ -12,7 +12,7 @@ import plant from './documents/plant';
 
 // Object types
 import amount from './objects/amount';
-import contactUs from './objects/contactUs';
+// import contactUs from './objects/contactUs';
 import cta from './objects/cta';
 import embedHTML from './objects/embedHTML';
 import figure from './objects/figure';
@@ -28,7 +28,6 @@ import shipping from './objects/shipping';
 // Landing page sections
 import hero from './objects/hero';
 import imageSection from './objects/imageSection';
-// import imageOnly from './objects/imageOnly';
 import mailchimp from './objects/mailchimp';
 import textSection from './objects/textSection';
 
@@ -45,7 +44,6 @@ export default createSchema({
     hero,
     plant,
     amount,
-    // imageOnly,
     imageSection,
     internalLink,
     link,
