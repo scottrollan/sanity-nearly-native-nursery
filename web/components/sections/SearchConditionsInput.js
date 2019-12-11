@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Spinner from '../Spinner';
 
 class SearchConditionsInput extends Component {
   state = {
@@ -83,6 +84,8 @@ class SearchConditionsInput extends Component {
   };
 
   searchByConditions = event => {
+    document.getElementById("spinner").style.display = "inherit";
+    document.getElementById("searchCondButton").style.display = "none";
     let filters = "";
     let form = [
       { name: "acid", array: "soilPH", value: this.state.soilPH_acid },
@@ -224,14 +227,15 @@ class SearchConditionsInput extends Component {
           </div>
         </div>
 
-
-        <button
-          className="condButton"
-          id="searchByConditions"
-          onClick={event => this.searchByConditions(event)}
-          type="submit">
-          Find My Plants
-        </button>
+        <div style={{ minHeight: '105px'}}>   
+        <Spinner/>
+          <button
+            id="searchCondButton"
+            onClick={event => this.searchByConditions(event)}
+            type="submit">
+            Find My Plants
+          </button>
+        </div>
         <style jsx>
           {`
             h4,
@@ -251,7 +255,7 @@ class SearchConditionsInput extends Component {
               font-size: calc(12px + .6vw);
               vertical-align: top;
             }
-            .condButton {
+            #searchCondButton {
               width: 38%;
               text-align: center;
               padding: 15px 0;
@@ -265,12 +269,13 @@ class SearchConditionsInput extends Component {
               font-size: var(--font-title3-size);
               line-height: var(--font-title3-line-height);
             }
-            .condButton:hover {
+            #searchCondButton:hover{
               color: #7d62b2;
-              background-color: #e3e3e3;
-              cursor: pointer;
+              background-color: #c3c3c3;
             }
-
+            .showSpinner {
+              display: inherit;
+            }
             @media screen and (max-width: 780px) {
               #checkboxDiv {
                 width: 94%;

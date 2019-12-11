@@ -25,6 +25,8 @@ class SearchResults extends Component {
     document.getElementById("resultsArea").style.display = "none";
     document.getElementById("searchArea").style.display = "inline";
     location.href = "#searchArea";
+    document.getElementById("spinner").style.display = "none";
+    document.getElementById("searchCondButton").style.display = "inline-block";
   };
 
   render(props) {
