@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SearchNameInput from './SearchNameInput';
 import SearchResults from './SearchResults';
 import SearchConditionsInput from './SearchConditionsInput';
+import Spinner from '../Spinner';
 
 class SearchPage extends Component {
   state = {
@@ -48,9 +49,11 @@ class SearchPage extends Component {
           />
           <hr />
           <h4>...or by Growing Conditions</h4>
-          <SearchConditionsInput
-            searchByConditions={(filters) => this.searchNow(filters)}
-          />
+          <div>
+            <SearchConditionsInput
+              searchByConditions={(filters) => this.searchNow(filters)}
+            />
+          </div>
         </div>
         </section>
         <SearchResults 

@@ -20,17 +20,17 @@ class ScrollToTop extends Component {
         document.documentElement.scrollTop = 0;
     };
 
-    scrollFunction = () => {
-        window.pageYOffset < 750 ?
-        document.getElementById('scrollBtn').style.display="none" :
-        document.getElementById('scrollBtn').style.display="inline";  }
+    // scrollFunction = () => {
+    //     window.pageYOffset < 750 ?
+    //     document.getElementById('scrollBtn').style.display="none" :
+    //     document.getElementById('scrollBtn').style.display="inline";  }
 
-    componentDidMount() {
-        window.pageYOffset === 0 ?
-        document.getElementById('scrollBtn').style.display="none" :
-        document.getElementById('scrollBtn').style.display="inline";
-        window.addEventListener('scroll', this.scrollFunction);
-    };
+    // componentDidMount() {
+    //     window.pageYOffset === 0 ?
+    //     document.getElementById('scrollBtn').style.display="none" :
+    //     document.getElementById('scrollBtn').style.display="inline";
+    //     window.addEventListener('scroll', this.scrollFunction);
+    // };
 
 
     render() {
