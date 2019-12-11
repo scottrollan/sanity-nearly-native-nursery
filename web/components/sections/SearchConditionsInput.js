@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Spinner from '../Spinner';
+import styles from './SearchConditionsInput.module.css'
 
 class SearchConditionsInput extends Component {
   state = {
@@ -135,9 +135,9 @@ class SearchConditionsInput extends Component {
   render() {
     return (
       <section>
-        <div id="checkboxDiv">
+        <div className={styles.checkboxDiv}>
           {this.state.conditionsOptions.map(c => (
-            <div className="adaptiveCol" key={c.title}>
+            <div className={styles.adaptiveCol} key={c.title}>
               <div style={{ textDecoration: "underline" }}>{c.title}</div>
               <div>
                 <input
@@ -169,7 +169,7 @@ class SearchConditionsInput extends Component {
             </div>
           ))}
 
-          <div className="adaptiveCol">
+          <div className={styles.adaptiveCol} style={{ textAlign: 'center'}}>
             <label htmlFor="category">
             <div style={{ textDecoration: "underline" }}>Category</div>
             </label>
@@ -194,7 +194,7 @@ class SearchConditionsInput extends Component {
           </div>
 
           {/* NOT FOR USE UNLESS/UNTIL lowZone and highZone ARE CONVERTED TO NUMBER FIELDS */}
-          <div className="adaptiveCol">
+          <div className={styles.adaptiveCol} style={{ textAlign: 'center' }}>
             <label htmlFor="zone">
             <div style={{ textDecoration: "underline" }}>Hardiness Zone</div>
             </label>
@@ -220,74 +220,24 @@ class SearchConditionsInput extends Component {
               <option>12</option>
             </select>
             <a href="https://garden.org/nga/zipzone/" target="_blank">
-              <h6 style={{ display: "inline-block", margin: "0 10px" }}>
+              <h6 style={{ display: "inline-block", margin: "20px 0" }}>
                 <u>What's My Hardiness Zone?</u>
               </h6>
             </a>
           </div>
         </div>
 
-        <div style={{ minHeight: '105px'}}>   
-        <Spinner/>
+        <div style={{ minHeight: '105px'}}> 
+          <div className={styles.loader} id="spinner"></div>          
           <button
+            className={styles.searchCondButton}
             id="searchCondButton"
             onClick={event => this.searchByConditions(event)}
             type="submit">
             Find My Plants
           </button>
         </div>
-        <style jsx>
-          {`
-            h4,
-            h5,
-            hr {
-              margin: 30px 0 10px;
-            }
-            #checkboxDiv {
-              width: 80%;
-              margin: 0 10% 1vh;
-            }
-            .adaptiveCol {
-              display: inline-block;
-              margin: 15px 0;
-              width: 25%;
-              text-align: left;
-              font-size: calc(12px + .6vw);
-              vertical-align: top;
-            }
-            #searchCondButton {
-              width: 38%;
-              text-align: center;
-              padding: 15px 0;
-              margin: 20px 0;
-              border: 1px solid #3e3e3e;
-              border-radius: 2vw;
-              box-sizing: border-box;
-              color: #3e3e3e;
-              background-color: transparent;
-              cursor: pointer;
-              font-size: var(--font-title3-size);
-              line-height: var(--font-title3-line-height);
-            }
-            #searchCondButton:hover{
-              color: #7d62b2;
-              background-color: #c3c3c3;
-            }
-            .showSpinner {
-              display: inherit;
-            }
-            @media screen and (max-width: 780px) {
-              #checkboxDiv {
-                width: 94%;
-                margin: 0 3%;
-              }
-              .adaptiveCol {
-                width: 33%;
-                font-size: 12px;
-              }
-            }
-          `}
-        </style>
+
       </section>
     );
   }

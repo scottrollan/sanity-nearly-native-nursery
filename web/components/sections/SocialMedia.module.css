@@ -33,3 +33,7 @@
 .label+.heading {
   margin-top: 0.25em;
 }
+
+.socialMediaLogo {
+  max-width: 120px;
+}
