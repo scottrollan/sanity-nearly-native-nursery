@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import ToTopButton from "../ScrollToTop";
+import styles from './SearchResults.module.css'
 
 class SearchResults extends Component {
   openModal = whichPlantModal => {
-    document.getElementById(whichPlantModal).classList.remove("hideModal");
-    document.getElementById(whichPlantModal).classList.add("showModal");
+    document.getElementById(whichPlantModal).style.cssText = "opacity: 1; visibility: visible;";
   };
 
   hideModal = whichPlantModal => {
-    document.getElementById(whichPlantModal).classList.add("hideModal");
+    document.getElementById(whichPlantModal).style.cssText = "opacity: 0; visibility: hidden;";
   };
 
   expandDescr = whichDescr => {
@@ -33,8 +33,8 @@ class SearchResults extends Component {
     return (
       <div id="resultsArea" style={{ display: "none" }}>
         <ToTopButton />
-        <div className="sticky">
-          <button className="returnButton" onClick={this.returnToSearch}>
+        <div className={styles.sticky}>
+          <button className={styles.returnButton} onClick={this.returnToSearch}>
             Return to Search Page
           </button>
         </div>
@@ -67,16 +67,16 @@ class SearchResults extends Component {
 
               return (
                 <div
-                  className="card"
+                  className={styles.card}
                   key={d._id}
                   style={{
                     backgroundColor: index % 2 == 0 ? "#eeeeee" : "#ffffff"
                   }}
                 >
-                  <div className="cardBody">
-                    <h3 className="cardCommon">{d.commonName}</h3>
+                  <div className={styles.cardBody}>
+                    <h3 className={styles.cardCommon}>{d.commonName}</h3>
                     <i>
-                      <h4 className="cardBotanical">
+                      <h4 className={styles.cardBotanical}>
                         {d.botanicalName} {d.variety}
                       </h4>
                       <p style={{ lineHeight: "1", fontSize: "small" }}>Category: {d.category}</p>
@@ -94,7 +94,7 @@ class SearchResults extends Component {
                     ) : null}
 
                     <button
-                      className="trigger"
+                      className={styles.trigger}
                       onClick={() => this.openModal(`${modalId}`)}
                       style={{
                         backgroundColor: index % 2 != 0 ? "#eeeeee" : "#ffffff"
@@ -104,8 +104,8 @@ class SearchResults extends Component {
                     </button>
 
                     {/* MODAL STARTS HERE */}
-                    <div className="modal" id={`${modalId}`}>
-                      <div className="modalContent">
+                    <div className={styles.modal} id={`${modalId}`}>
+                      <div className={styles.modalContent}>
                         <h4>{d.commonName}</h4>
                         <h5>
                           <i>
@@ -133,38 +133,38 @@ class SearchResults extends Component {
                         <p>
                           Thrives from zone {d.lowZone} to zone {d.highZone}.
                         </p>
-                        <div className="row" style={{ width: "100%" }}>
-                          <div className="oneThirdBlock">
+                        <div className={styles.row} style={{ width: "100%" }}>
+                          <div className={styles.oneThirdBlock}>
                             <ul>Soil types:</ul>
                             {d.soilType.map((type, index) => (
                               <li key={index}>{type}</li>
                             ))}
                           </div>
-                          <div className="oneThirdBlock">
+                          <div className={styles.oneThirdBlock}>
                             <ul>Soil Ph:</ul>
                             {d.soilPH.map((ph, index) => (
                               <li key={index}>{ph}</li>
                             ))}
                           </div>
-                          <div className="oneThirdBlock">
+                          <div className={styles.oneThirdBlock}>
                             <ul>Water level:</ul>
                             {d.waterLevel.map((water, index) => (
                               <li key={index}>{water}</li>
                             ))}
                           </div>
-                          <div className="oneThirdBlock">
+                          <div className={styles.oneThirdBlock}>
                             <ul>Sun exposure:</ul>
                             {d.sunlightLevel.map((sun, index) => (
                               <li key={index}>{sun}</li>
                             ))}
                           </div>
-                          <div className="oneThirdBlock">
+                          <div className={styles.oneThirdBlock}>
                             <ul>Foliage:</ul>
                             {d.foliage.map((f, index) => (
                               <li key={index}>{f}</li>
                             ))}
                           </div>
-                          <div className="oneThirdBlock">
+                          <div className={styles.oneThirdBlock}>
                             {hasUniqueImage == true ? (
                               //if it has a unique image, it is clickable
                               <a href={`${imageUrl}`} target="_blank">
@@ -197,14 +197,14 @@ class SearchResults extends Component {
                             )}
                           </div>
                         </div>
-                        <div className="row" style={{ width: "100%" }}>
-                          <div className="oneThirdBlock">
+                        <div className={styles.row} style={{ width: "100%" }}>
+                          <div className={styles.oneThirdBlock}>
                             <ul>Container Size</ul>
                             {d.amount.map((p, index) => (
                               <li key={index}>{p.containerSize}</li>
                             ))}
                           </div>
-                          <div className="oneThirdBlock">
+                          <div className={styles.oneThirdBlock}>
                             <ul>Price</ul>
                             {d.amount.map((p, index) => (
                               <li key={index}>${p.price}</li>
@@ -212,9 +212,9 @@ class SearchResults extends Component {
                           </div>
 
 
-                          <div className="oneThirdBlock">
+                          <div className={styles.oneThirdBlock}>
                             <button
-                              className="closeButton"
+                              className={styles.closeButton}
                               onClick={() => this.hideModal(`${modalId}`)}
                             >
                               Close
@@ -228,125 +228,6 @@ class SearchResults extends Component {
                 </div>
               );
             })}
-        <style jsx>
-          {`
-                    div.sticky {
-                        position: -webkit-sticky;
-                        position: sticky;
-                        top: 0;
-                        text-align: center;
-                        width: 100%;
-                        background-color: #ffffff;
-                        margin: 0;
-                        padding: 0;
-                    }
-                    button {
-                        margin: 10px;
-                    }
-                    .returnButton {
-                        width:38%; 
-                        text-align: center; 
-                        border: 1px solid #3e3e3e; 
-                        padding: 15px;
-                        margin: 10px;
-                        border-radius: 2vw;
-                        box-sizing: border-box; 
-                        color: #3e3e3e; 
-                        background-color: #ffffff;  
-                        cursor: pointer; 
-                        font-size: var(--font-title3-size); 
-                        line-height: var(--font-title3-line-height);
-                    }
-                    button:hover {
-                        color: white;
-                        background-color: #444444 !important;
-                    }
-                    .card {
-                        border: 1px solid #999999;
-                        width: 80%;
-                        margin: 10px 10%;
-                    }
-                    .cardBody {
-                        padding: 0;
-                        text-align: center;
-                    }
-
-                    .modal {
-                        position: fixed;
-                        left: 0;
-                        top: 0;
-                        width: 100%;
-                        height: 100%;
-                        background-color: rgba(0, 0, 0, 0.5);
-                        opacity: 0;
-                        visibility: hidden;
-                        transform: scale(1.1);
-                        transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-                        border: 1px solid #767676;
-                        box-shadow: 5px 10px 100px #cccccc;
-                        z-index: 9999;
-                    }
-                    .modalContent {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        background-color: white;
-                        padding: 1rem 1.5rem;
-                        width: 90%;
-                        max-width: 24rem;
-                        max-height: 90%;
-                        border-radius: 0.5rem;
-                        overflow: hidden;
-                        overflow-y: auto
-                    }
-                    .closeButton {
-                        position: absolute;
-                        right: 12px;
-                        top: 12px;
-                        line-height: 1.5rem;
-                        padding: 2px 8px;
-                        text-align: center;
-                        cursor: pointer;
-                        border-radius: 0.25rem;
-                        background-color: transparent;;
-                    }
-                    .showModal {
-                        opacity: 1;
-                        visibility: visible;
-                        transform: scale(1.0);
-                        transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-                    }
-                    .hideModal {
-                      opacity: 0;
-                      visibility: hidden;
-                      transition: visibility 0s linear 0s, opacity 0.5s 0s, transform 0.5s;
-                    }
-                    .oneThirdBlock {
-                        display: inline-block;
-                        width: 33%;
-                        margin: 10px 0;
-                        text-align: left;
-                        vertical-align: top;
-                    }
-                    ul{
-                        text-align: left;
-                        margin: 0;
-                        padding: 0;
-                        text-decoration: underline;
-                    }
-                    li {
-                        list-style-type: none;
-                    }
-                    .row:after {
-                        content: "";
-                        display: table;
-                        clear: both;
-                    }  
-
-                    }
-                        `}
-        </style>
       </div>
     );
   }
