@@ -26,7 +26,7 @@ class searchNameInput extends Component {
   render(props) {
     return (
       <div>
-        <div>
+        <form>
           <input
             type="text"
             name="search_name"
@@ -35,7 +35,7 @@ class searchNameInput extends Component {
             onChange={this.handleChange}
             style={{ backgroundColor: "#e3e3e3", padding: "0 8px", height: "22px" }}
           ></input>
-        </div>        
+       
         <div className="wrapper">
           <div className="bg">
             <div className="el">Search By Name</div>
@@ -44,15 +44,18 @@ class searchNameInput extends Component {
         <button
           className="nameButton"
           onClick={event => this.searchByName(event)}
+          onSubmit={event => this.searchByName(event)}          
           type="submit"
           value={this.state.search_name}
         >
           Search By Name
         </button>
+        </form> 
         <style jsx>
           {`
             .nameButton {
-              width: 38%;
+              width: 90%;
+              max-width: 300px;
               text-align: center;
               padding: 15px 0;
               margin: 20px 0 0;

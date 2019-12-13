@@ -31,7 +31,7 @@ class SearchResults extends Component {
 
   render(props) {
     return (
-      <div id="resultsArea" style={{ display: "none" }}>
+      <div id="resultsArea" style={{ display: "none", width: '80%' }}>
         <ToTopButton />
         <div className={styles.sticky}>
           <button className={styles.returnButton} onClick={this.returnToSearch}>
@@ -70,7 +70,10 @@ class SearchResults extends Component {
                   className={styles.card}
                   key={d._id}
                   style={{
-                    backgroundColor: index % 2 == 0 ? "#eeeeee" : "#ffffff"
+                    backgroundColor: index % 2 == 0 ? "#eeeeee" : "#ffffff",
+                    WebkitBoxShadow: '10px 10px 10px 1px rgba(0, 0, 0, 0.12)',
+                    MozBoxshadow: '10px 10px 10px 1px rgba(0, 0, 0, 0.12)',
+                    boxShadow: '10px 10px 10px 1px rgba(0, 0, 0, 0.12)'
                   }}
                 >
                   <div className={styles.cardBody}>

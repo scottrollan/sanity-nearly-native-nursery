@@ -1,34 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-// import styles from './OrderForm.module.css'
+import React from "react";
 
-function OrderForm (props) {
-  const {heading, label} = props
+function OrderForm(props) {
+  const { heading, label } = props;
 
   return (
-    <div className={styles.root}>
-      <section className={styles.article}>
-        <div className={styles.label}>{label}</div>
-        <h2 className={styles.heading}>{heading}</h2>
-        {/* <iframe src={}>
-            This browser does not support PDFs. Please download the PDF to view it: Download PDF
-        </iframe> */}
-      </section>
-  
+    <section id="orderForm">
+      <embed src='https://cdn.sanity.io/files/ogg4t6rs/production/fb00e959f5eed3fed469f42cf0e01dc008f5150b.pdf' />
       <style jsx>{`
-        ifram {
-            width: 100%; 
-            height: 100%;
+        embed {
+          width: 100%;
+          height: 100%;
         }
-      `}
-      </style>
-    </div>
-  )
+      `}</style>
+    </section>
+  );
 }
 
-OrderForm.propTypes = {
-  heading: PropTypes.string,
-  label: PropTypes.string,
-}
-
-export default OrderForm
+export default OrderForm;

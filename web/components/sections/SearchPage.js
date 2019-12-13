@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import SearchNameInput from './SearchNameInput';
 import SearchResults from './SearchResults';
 import SearchConditionsInput from './SearchConditionsInput';
-import Spinner from '../Spinner';
 
 class SearchPage extends Component {
   state = {
@@ -41,7 +40,7 @@ class SearchPage extends Component {
   render() {
     return (
       <div>
-      <section id="searchArea">
+      <section id="searchArea"  style={{ textAlign: "center" }}>
         <div style={{ textAlign: "center" }}>
             <h4>Search Botanical Name or Common Name: &nbsp;</h4>
           <SearchNameInput
