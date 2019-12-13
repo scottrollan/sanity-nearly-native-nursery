@@ -16,7 +16,8 @@ hr {
   vertical-align: top;
 }
 .searchCondButton {
-  width: 38%;
+  width: 90%;
+  max-width: 300px;
   text-align: center;
   padding: 15px 0;
   margin: 20px 0;
