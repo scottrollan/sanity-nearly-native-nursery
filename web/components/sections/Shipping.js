@@ -132,7 +132,10 @@ class Shipping extends Component {
           data="https://cdn.sanity.io/files/ogg4t6rs/production/fb00e959f5eed3fed469f42cf0e01dc008f5150b.pdf"
           type="application/pdf"
           id="pdf"
-        ></object>
+        >
+          <p>Your web browswer doesn't have a PDF plugin. 
+              <a href="https://cdn.sanity.io/files/ogg4t6rs/production/fb00e959f5eed3fed469f42cf0e01dc008f5150b.pdf">Click here</a> to download the order form.</p>
+        </object>
         </div>
 
         <style jsx>
