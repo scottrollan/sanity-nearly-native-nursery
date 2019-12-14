@@ -128,10 +128,11 @@ class Shipping extends Component {
           </div>
         </div>
         <div>
-        <embed
-          src="https://cdn.sanity.io/files/ogg4t6rs/production/fb00e959f5eed3fed469f42cf0e01dc008f5150b.pdf"
+        <object
+          data="https://cdn.sanity.io/files/ogg4t6rs/production/fb00e959f5eed3fed469f42cf0e01dc008f5150b.pdf"
+          type="application/pdf"
           id="pdf"
-        ></embed>
+        ></object>
         </div>
 
         <style jsx>
