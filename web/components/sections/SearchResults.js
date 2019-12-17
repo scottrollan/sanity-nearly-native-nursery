@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ToTopButton from "../ScrollToTop";
-import styles from './SearchResults.module.css'
+import styles from "./SearchResults.module.css";
 
 class SearchResults extends Component {
   openModal = whichPlantModal => {
@@ -31,7 +31,7 @@ class SearchResults extends Component {
 
   render(props) {
     return (
-      <div id="resultsArea" style={{ display: "none", width: '80%' }}>
+      <div id="resultsArea" style={{ display: "none", width: "80%" }}>
         <ToTopButton />
         <div className={styles.sticky}>
           <button className={styles.returnButton} onClick={this.returnToSearch}>
@@ -57,9 +57,11 @@ class SearchResults extends Component {
               let imageUrl =
                 "https://cdn.sanity.io/images/ogg4t6rs/production/a3d829ee02102d79da412cf8fe5f0fac1577254c-175x188.png";
               let hasUniqueImage = false;
-              if (d.image.asset == undefined ) {
-                null
-              }else if(d.image.asset._ref !="image-a3d829ee02102d79da412cf8fe5f0fac1577254c-175x188-png"){
+              if (d.image.asset == undefined) {
+                null;
+              } else if (
+                d.image.asset._ref != "image-a3d829ee02102d79da412cf8fe5f0fac1577254c-175x188-png"
+              ) {
                 hasUniqueImage = true;
                 const imageArray = d.image.asset._ref.split("-"); //splits _ref into an array of length 4
                 imageUrl = `https://cdn.sanity.io/images/ogg4t6rs/production/${imageArray[1]}-${imageArray[2]}.${imageArray[3]}`; //gives image <image id>-<original size>.<extension>
@@ -71,9 +73,9 @@ class SearchResults extends Component {
                   key={d._id}
                   style={{
                     backgroundColor: index % 2 == 0 ? "#eeeeee" : "#ffffff",
-                    WebkitBoxShadow: '10px 10px 10px 1px rgba(0, 0, 0, 0.12)',
-                    MozBoxshadow: '10px 10px 10px 1px rgba(0, 0, 0, 0.12)',
-                    boxShadow: '10px 10px 10px 1px rgba(0, 0, 0, 0.12)'
+                    WebkitBoxShadow: "10px 10px 10px 1px rgba(0, 0, 0, 0.12)",
+                    MozBoxshadow: "10px 10px 10px 1px rgba(0, 0, 0, 0.12)",
+                    boxShadow: "10px 10px 10px 1px rgba(0, 0, 0, 0.12)"
                   }}
                 >
                   <div className={styles.cardBody}>
@@ -85,15 +87,17 @@ class SearchResults extends Component {
                       <p style={{ lineHeight: "1", fontSize: "small" }}>Category: {d.category}</p>
                     </i>
                     {hasUniqueImage == true ? (
-                      <div
-                        style={{
-                          width: "100px",
-                          height: "110px",
-                          margin: "0 calc(50% - 50px)",
-                          backgroundImage: `url("${imageUrl}?w=100&fit=scale")`,
-                          backgroundRepeat: "no-repeat"
-                        }}
-                      ></div>
+                      <a href={`${imageUrl}`} target="_blank">
+                        <div
+                          style={{
+                            width: "100px",
+                            height: "110px",
+                            margin: "0 calc(50% - 50px)",
+                            backgroundImage: `url("${imageUrl}?w=100&fit=scale")`,
+                            backgroundRepeat: "no-repeat"
+                          }}
+                        ></div>
+                      </a>
                     ) : null}
 
                     <button
@@ -213,7 +217,6 @@ class SearchResults extends Component {
                               <li key={index}>${p.price}</li>
                             ))}
                           </div>
-
 
                           <div className={styles.oneThirdBlock}>
                             <button
