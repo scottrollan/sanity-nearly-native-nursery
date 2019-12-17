@@ -3,14 +3,21 @@ import React from "react";
 const ContactUs = () => {
   return (
     <div>
-      <form name="contactExperimental" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
+    <fieldset>
+      <legend>Send Us A Message</legend>
+      <form
+        name="contactExperimental"
+        method="post"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
         <input type="hidden" name="form-name" value="contactExperimental" />
         <div>
           <select
             name="subject[]"
             required
             selected="default"
-            style={{ width: '46%', margin: '12px 0' }}
+            style={{ width: "46%", margin: "12px 0" }}
           >
             <option value="default" disabled>
               Select...
@@ -28,14 +35,14 @@ const ContactUs = () => {
             name="name"
             required
             placeholder="Your name"
-            style={{ width: '46%', margin: '12px 0' }}
+            style={{ width: "46%", margin: "12px 0" }}
           />
           <input
             type="email"
             name="email"
             required
             placeholder="Your email"
-            style={{ width: '46%', margin: '12px 0' }}
+            style={{ width: "46%", margin: "12px 0" }}
           />
         </div>
 
@@ -45,7 +52,7 @@ const ContactUs = () => {
             id="company"
             name="company"
             placeholder="Company"
-            style={{ width: '46%', margin: '12px 0' }}
+            style={{ width: "46%", margin: "12px 0" }}
           />
         </div>
 
@@ -55,14 +62,14 @@ const ContactUs = () => {
             id="address1"
             name="address1"
             placeholder="Address line 1"
-            style={{ width: '46%', margin: '12px 0' }}
+            style={{ width: "46%", margin: "12px 0" }}
           />
           <input
             type="text"
             id="address2"
             name="address2"
             placeholder="Address line 2"
-            style={{ width: '46%', margin: '12px 0' }}
+            style={{ width: "46%", margin: "12px 0" }}
           />
         </div>
 
@@ -72,48 +79,50 @@ const ContactUs = () => {
             id="city"
             name="city"
             placeholder="City"
-            style={{ width: '34%', margin: '12px 0' }}
+            style={{ width: "34%", margin: "12px 0" }}
           />
           <input
             type="text"
             id="st"
             name="st"
             placeholder="State/Province"
-            style={{ width: '34%', margin: '12px 0' }}
+            style={{ width: "34%", margin: "12px 0" }}
           />
           <input
             type="text"
             id="zip"
             name="zip"
             placeholder="Postal Code"
-            style={{ width: '23.6%', margin: '12px 0' }}
+            style={{ width: "23.6%", margin: "12px 0" }}
           />
         </div>
 
         <div>
           <textarea
+            required
             id="message"
             name="message"
             rows="6"
             placeholder="Your message here..."
-            style={{ width: '92.4%', margin: '12px 0' }}
-          ></textarea>          
+            style={{ width: "92.4%", margin: "12px 0" }}
+          ></textarea>
         </div>
         <div>
           <label htmlFor="fileUpload">File input</label>
-          <input
-            type="file"
-            id="fileUpload"
-            style={{ width: 'auto', margin: '12px 0' }}
-          />
+          <input type="file" id="fileUpload" style={{ width: "auto", margin: "12px 0" }} />
         </div>
         <button type="submit">Submit</button>
       </form>
+      </fieldset>
       <style jsx>{`
+        fieldset {
+          border: 1px solid black;
+          width: 70%;
+          margin: 0 15% 20px;
+        }
         form {
-          margin: 0 15%;
-          width: 70%; 
-          padding: 0; 
+          width: 100%;
+          padding: 12px;
           box-sizing: border-box;
         }
         div {
@@ -123,6 +132,9 @@ const ContactUs = () => {
         input {
           box-sizing: border-box;
         }
+        textarea:invalid {
+          box-shadow: none;
+      }
       `}</style>
     </div>
   );
