@@ -79,22 +79,22 @@ class Shipping extends Component {
           <h6 className="tableHeader">Fuel Surcharge Costs</h6>
 
           <div className="row">
-            <p className="outlined6" style={{ backgroundColor: "#ff007f", color: "white" }}>
+            <p className="outlined6" style={{ backgroundColor: "#FFD124", color: "white" }}>
               Zone 1
             </p>
-            <p className="outlined6" style={{ backgroundColor: "#01ffff", color: "white" }}>
+            <p className="outlined6" style={{ backgroundColor: "#C98400", color: "white" }}>
               Zone 2
             </p>
-            <p className="outlined6" style={{ backgroundColor: "#ff7f02", color: "white" }}>
+            <p className="outlined6" style={{ backgroundColor: "#99CC00", color: "white" }}>
               Zone 3
             </p>
-            <p className="outlined6" style={{ backgroundColor: "#00ff01", color: "white" }}>
+            <p className="outlined6" style={{ backgroundColor: "#990000", color: "white" }}>
               Zone 4
             </p>
-            <p className="outlined6" style={{ backgroundColor: "#4e148c", color: "white" }}>
+            <p className="outlined6" style={{ backgroundColor: "#FF6600", color: "white" }}>
               Zone 5
             </p>
-            <p className="outlined6" style={{ backgroundColor: "#1601ff", color: "white" }}>
+            <p className="outlined6" style={{ backgroundColor: "#999999", color: "white" }}>
               Zone 6
             </p>
           </div>
