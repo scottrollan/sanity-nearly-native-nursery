@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from './SocialMedia.module.css';
+import styles from "./SocialMedia.module.css";
 
 function SocialMedia(props) {
   const { heading, label, text } = props;
@@ -23,11 +23,11 @@ function SocialMedia(props) {
       url: "https://www.instagram.com/nearlynativenursery/",
       logo:
         "https://cdn.sanity.io/images/ogg4t6rs/production/b476267f35f22949193350c4dea2d89c6d5fcfdb-514x518.png"
-    },
+    }
   ];
 
-  const logoWidth = 75/media.length; //sum of the widths of the logos will equal 75%
-  const logoSideMargin = 25/(2*media.length); //sum of the widths of side margins will make up the other 25%
+  const logoWidth = 75 / media.length; //sum of the widths of the logos will equal 75%
+  const logoSideMargin = 25 / (2 * media.length); //sum of the widths of side margins will make up the other 25%
 
   return (
     <div className={styles.root}>
@@ -36,13 +36,8 @@ function SocialMedia(props) {
         <h2 className={styles.heading}>{heading}</h2>
         <div style={{ display: "inline" }}>
           {media.map((m, index) => (
-            <a href={m.url} target="blank">
-              <img
-                key={`logo${index}${m.name.toLowerCase()}`}
-                className="logo"
-                src={m.logo}
-                alt={m.name}
-              ></img>
+            <a href={m.url} target="blank" key={`logo${index}${m.name.toLowerCase()}`}>
+              <img className="logo" src={m.logo} alt={m.name}></img>
             </a>
           ))}
         </div>
@@ -52,7 +47,7 @@ function SocialMedia(props) {
         {`
           .logo {
             width: ${logoWidth}%;
-            margin:  0 ${logoSideMargin}%;
+            margin: 0 ${logoSideMargin}%;
             opacity: 0.7;
           }
           .logo:hover {
