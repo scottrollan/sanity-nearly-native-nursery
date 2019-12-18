@@ -1,0 +1,69 @@
+.wrapper {
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .tableHeader {
+    text-align: center;
+    margin: 3vh 0 0 0;
+    font-weight: bold;
+    font-size: larger;
+  }
+  table {
+      width: 100%;
+  }
+  .outlined {
+    border: 1px solid #8a8a8a;
+  }
+
+  button {
+    width: calc(38% - 2rem);
+    text-align: center;
+    padding: 15px 0;
+    margin: 50px 1rem;
+    border: 1px solid #3e3e3e;
+    border-radius: 2vw;
+    box-sizing: border-box;
+    color: #3e3e3e;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: var(--font-title3-size);
+    line-height: var(--font-title3-line-height);
+  }
+  .pdf {
+    width: 70%;
+    min-height: 60vh;
+  }
+  .pdf,
+  .shipping {
+    display: none;
+    margin: 10px 0;
+  }
+  .leftColumn,
+  .rightColumn {
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 1.75vw;
+    line-height: 2;
+    margin: 0;
+  }
+  .leftColumn {
+    width: 75%;
+    padding: 0 0 0 10px;
+    text-align: left; 
+  }
+  .rightColumn {
+    width: 20%;
+    padding: 0 10px 0 0;
+    text-align: right;
+  }
+  @media only screen and (max-width: 1024px) {
+    button {
+        width: calc(50% - 2rem);
+    }
+    .pdf {
+      width: 90%;
+    }
+  }
