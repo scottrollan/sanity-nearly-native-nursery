@@ -1,52 +1,37 @@
-
 import React, { Component } from "react";
 
 class ScrollToTop extends Component {
+  className = "button"; //enter any className, i.e. any Bootstrap classes you want to apply
 
-    className = "button"  //enter any className, i.e. any Bootstrap classes you want to apply
+  scrollUp = () => {
+    document.getElementById("resultsArea").scrollIntoView();
+  };
 
-    styles = {
-        position: 'fixed',
-        bottom: '50px',
-        right: '20px',
-        padding: '3px 10px', 
-        backgroundColor: '#AED790',
-        zIndex: '9999'
-        //enter any more button styling here
-    }
-
-    scrollUp = () => {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    };
-
-    // scrollFunction = () => {
-    //     window.pageYOffset < 750 ?
-    //     document.getElementById('scrollBtn').style.display="none" :
-    //     document.getElementById('scrollBtn').style.display="inline";  }
-
-    // componentDidMount() {
-    //     window.pageYOffset === 0 ?
-    //     document.getElementById('scrollBtn').style.display="none" :
-    //     document.getElementById('scrollBtn').style.display="inline";
-    //     window.addEventListener('scroll', this.scrollFunction);
-    // };
-
-
-    render() {
-        return (
-            <button
-            onClick={this.scrollUp}
-            id="scrollBtn"
-            className={this.className}
-            style={this.styles}
-            title="Top"
-            >
-            Top
-            </button>
+  render() {
+    return (
+      <div id="scrollBtn">
+        <button onClick={this.scrollUp} className={this.className} title="Top">
+          &#8896;
+        </button>
+        <style jsx>{`
+          button {
+            position: fixed;
+            z-index: 9999;
+            bottom: 100px;
+            right: 70px;
+            background-color: #eeeeee;
+            width: auto;
+            height: auto;
+            padding: 5px 10px;
+            border-radius: 4px;
+          }
+          button:hover {
+            background-color: #3e3e3e;
+          }
+        `}</style>
+      </div>
     );
-    }
-  
+  }
 }
 
 export default ScrollToTop;

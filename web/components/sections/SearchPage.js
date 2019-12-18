@@ -40,7 +40,8 @@ class SearchPage extends Component {
   render() {
     return (
       <div>
-      <section id="searchArea"  style={{ textAlign: "center" }}>
+      <section id="searchArea">
+        <div id="mask"></div>
         <div style={{ textAlign: "center" }}>
             <h4>Search Botanical Name or Common Name: &nbsp;</h4>
           <SearchNameInput
@@ -61,6 +62,20 @@ class SearchPage extends Component {
 
         <style jsx>
           {`
+          #searchArea {
+            position: relative;
+            text-align: center;
+          }
+          #mask {
+            background-image: url("https://cdn.sanity.io/images/ogg4t6rs/production/d481f5ebfea4ba299cdf293b1de95a54dd6b48c1-614x661.png");
+            background-repeat: no-repeat;
+            background-position: center;  
+            opacity: .2;          
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: -1
+          }
             h4, h5, hr {
               margin: 30px 0 10px;
             }      
