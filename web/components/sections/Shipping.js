@@ -1,6 +1,67 @@
 import React, { Component } from "react";
+import styles from "./Shipping.module.css";
 
 class Shipping extends Component {
+  state = {
+    baseCost: [
+      {
+        merchandise: "$0 to $10",
+        charge: "$15"
+      },
+      {
+        merchandise: "$10.01 to $25",
+        charge: "$17"
+      },
+      {
+        merchandise: "$25.01 to $50",
+        charge: "$19"
+      },
+      {
+        merchandise: "$50.01 to $75",
+        charge: "$21"
+      },
+      {
+        merchandise: "$75.01 to $100",
+        charge: "$23"
+      },
+      {
+        merchandise: "over $100",
+        charge: "28%"
+      }
+    ],
+    fuelSurcharge: [
+      {
+        zone: "1",
+        percentage: "0",
+        backgroundColor: "#FFD124"
+      },
+      {
+        zone: "2",
+        percentage: "10",
+        backgroundColor: "#C98400"
+      },
+      {
+        zone: "3",
+        percentage: "20",
+        backgroundColor: "#99CC00"
+      },
+      {
+        zone: "4",
+        percentage: "30",
+        backgroundColor: "#990000"
+      },
+      {
+        zone: "5",
+        percentage: "40",
+        backgroundColor: "#FF6600"
+      },
+      {
+        zone: "6",
+        percentage: "50",
+        backgroundColor: "#999999"
+      }
+    ]
+  };
   shipping = "document.getElementById('shipping')";
   pdf = "document.getElementById('pdf')";
   onInfo = "document.getElementById('onInfo')";
@@ -31,7 +92,7 @@ class Shipping extends Component {
 
   render() {
     return (
-      <div className="wrapper">
+      <div className={styles.wrapper}>
         <button id="onInfo" onClick={this.showInfo}>
           See Shipping Costs
         </button>
@@ -39,171 +100,125 @@ class Shipping extends Component {
           Hide Shipping Costs
         </button>
         <button id="onPdf" onClick={this.showPdf}>
-          Order Form
+          Show Order Form
         </button>
         <button id="offPdf" onClick={this.hidePdf} style={{ display: "none" }}>
           Hide Oder Form
         </button>
-        <div id="shipping">
+
+        <div className={styles.shipping} id="shipping">
           <h5 style={{ width: "100%", textAlign: "center" }}>
             <u>
-              Total Shipping charges are Base Cost{" "}
+              Total Shipping charges are Base Cost
               <em>
                 <u>plus</u>
-              </em>{" "}
+              </em>
               Fuel Surcharge
             </u>
           </h5>
 
-          <h6 className="tableHeader">
+          <h6 className={styles.tableHeader}>
             Boxes, Packaging and Shipping <strong>Base Costs</strong>
           </h6>
+          <table cellSpacing={0}>
+            <tr className={styles.row} style={{ backgroundColor: "#c3c3c3" }}>
+              {this.state.baseCost.map((m, index) => (
+                <td className={styles.outlined} key={index}>
+                  {m.merchandise}
+                </td>
+              ))}
+            </tr>
+            <tr>
+              {this.state.baseCost.map((p, index) => (
+                <td className={styles.outlined} key={index}>
+                  {p.charge}
+                </td>
+              ))}
+            </tr>
+          </table>
 
-          <div className="row" style={{ backgroundColor: "#c3c3c3" }}>
-            <p className="outlined">$0 to $10</p>
-            <p className="outlined">$10.01 to $25</p>
-            <p className="outlined">$25.01 to $50</p>
-            <p className="outlined">$50.01 to $75</p>
-            <p className="outlined">$75.01 to $100</p>
-            <p className="outlined">over $100</p>
-          </div>
-          <div className="row">
-            <p className="outlined">$15</p>
-            <p className="outlined">$17</p>
-            <p className="outlined">$19</p>
-            <p className="outlined">$21</p>
-            <p className="outlined">$23</p>
-            <p className="outlined">28%</p>
-          </div>
+          <h6 className={styles.tableHeader}>Fuel Surcharge Costs</h6>
 
-          <h6 className="tableHeader">Fuel Surcharge Costs</h6>
+          {this.state.fuelSurcharge.map((f, index) => (
+            <table cellSpacing={0}>
+              <tr key={index}>
+                <td className={styles.outlined} style={{ backgroundColor: f.backgroundColor, width: '33.333%' }}>
+                  Zone {f.zone}
+                </td>
+                <td className={styles.outlined} style={{ width: '33.333% !important' }}>
+                  base cost <em>plus</em>
+                </td>
+                <td className={styles.outlined} style={{ width: '33.333%' }}>${f.percentage}</td>
+              </tr>
+            </table>
+          ))}
 
-          <div className="row">
-            <p className="outlined6" style={{ backgroundColor: "#FFD124", color: "white" }}>
-              Zone 1
-            </p>
-            <p className="outlined6" style={{ backgroundColor: "#C98400", color: "white" }}>
-              Zone 2
-            </p>
-            <p className="outlined6" style={{ backgroundColor: "#99CC00", color: "white" }}>
-              Zone 3
-            </p>
-            <p className="outlined6" style={{ backgroundColor: "#990000", color: "white" }}>
-              Zone 4
-            </p>
-            <p className="outlined6" style={{ backgroundColor: "#FF6600", color: "white" }}>
-              Zone 5
-            </p>
-            <p className="outlined6" style={{ backgroundColor: "#999999", color: "white" }}>
-              Zone 6
-            </p>
-          </div>
-          <div className="row">
-            <p className="outlined6">
-              base costs <em>plus</em>
-            </p>
-            <p className="outlined6">
-              base costs <em>plus</em>
-            </p>
-            <p className="outlined6">
-              base costs <em>plus</em>
-            </p>
-            <p className="outlined6">
-              base costs <em>plus</em>
-            </p>
-            <p className="outlined6">
-              base costs <em>plus</em>
-            </p>
-            <p className="outlined6">
-              base costs <em>plus</em>
-            </p>
-          </div>
-          <div className="row">
-            <p className="outlined6">0</p>
-            <p className="outlined6">10%</p>
-            <p className="outlined6">20%</p>
-            <p className="outlined6">30%</p>
-            <p className="outlined6">40%</p>
-            <p className="outlined6">50%</p>
+          <div>
+            <fieldset
+              style={{
+                border: "1px dashed black",
+                width: "76%",
+                margin: "20px 12%",
+                boxSizing: "border-box"
+              }}
+            >
+              <legend>Shipping Cost Example</legend>
+              <div style={{ width: "90%", display: "inline-block", margin: "0 5%", padding: "0" }}>
+                <p className={styles.leftColumn} style={{ backgroundColor: "#eeeeee" }}>
+                  Merchandise
+                </p>
+                <p className={styles.rightColumn} style={{ backgroundColor: "#eeeeee" }}>
+                  {" "}
+                  $37.00
+                </p>
+                <p className={styles.leftColumn}>Base shipping cost</p>
+                <p className={styles.rightColumn}>$19.00</p>
+                <p className={styles.leftColumn} style={{ backgroundColor: "#eeeeee" }}>
+                  Fuel surcharge delivery to <em>Zone 3</em> ($19.00*20%)
+                </p>
+                <p
+                  className={styles.rightColumn}
+                  style={{ borderBottom: "2px solid #333333", backgroundColor: "#eeeeee" }}
+                >
+                  $3.80
+                </p>
+                <p className={styles.leftColumn}>
+                  Total cost, including shippng and fuel surcharge =
+                </p>
+                <p className={styles.rightColumn}> $59.80</p>
+              </div>
+            </fieldset>
+            <em>
+              <p>
+                Due to substantial increases in shipping costs, we find it necessary to pass on the
+                fuel surcharges that have been levied on us.
+              </p>
+              <p>
+                {" "}
+                Because of increased shipping costs, any plant or combination of plants that will
+                not fit into a 48" box will automatically incur an additional $11.00 surcharge to
+                ship FedEx ground. We are happy to give you an estimated shipping rate when we
+                receive your order.
+              </p>
+            </em>
           </div>
         </div>
         <div>
-        <object
-          data="https://cdn.sanity.io/files/ogg4t6rs/production/fb00e959f5eed3fed469f42cf0e01dc008f5150b.pdf"
-          type="application/pdf"
-          id="pdf"
-        >
-          <p>Your web browswer doesn't have a PDF plugin. 
-              <a href="https://cdn.sanity.io/files/ogg4t6rs/production/fb00e959f5eed3fed469f42cf0e01dc008f5150b.pdf">Click here</a> to download the order form.</p>
-        </object>
+          <object
+            data="https://cdn.sanity.io/files/ogg4t6rs/production/fb00e959f5eed3fed469f42cf0e01dc008f5150b.pdf"
+            type="application/pdf"
+            id="pdf"
+            className={styles.pdf}
+          >
+            <p>
+              Your web browswer doesn't have a PDF plugin.
+              <a href="https://cdn.sanity.io/files/ogg4t6rs/production/fb00e959f5eed3fed469f42cf0e01dc008f5150b.pdf">
+                Click here
+              </a>
+              to download the order form.
+            </p>
+          </object>
         </div>
-
-        <style jsx>
-          {`
-            .wrapper {
-              width: 90%;
-              margin-left: 5%;
-              text-align: center;
-              justify-content: center;
-              padding: 0;
-            }
-            .tableHeader {
-              text-align: center;
-              margin: 3vh 0 0 0;
-              font-weight: bold;
-              font-size: larger;
-            }
-            .row {
-              display: table-row;
-              width: 100%;
-              margin: 0 auto;
-            }
-            .outlined {
-              display: table-cell;
-              border: 1px solid #8a8a8a;
-              text-align: center;
-              font-size: 1.5vw;
-              box-sizing: border-box;
-              padding: 0 2.83vw;
-            }
-            .outlined6 {
-              display: table-cell;
-              border: 1px solid #8a8a8a;
-              text-align: center;
-              font-size: 1.5vw;
-              box-sizing: border-box;
-              padding: 0 2vw;
-            }
-            button {
-              width: 38%;
-              text-align: center;
-              padding: 15px 0;
-              margin: 50px 0;
-              border: 1px solid #3e3e3e;
-              border-radius: 2vw;
-              box-sizing: border-box;
-              color: #3e3e3e;
-              background-color: transparent;
-              cursor: pointer;
-              font-size: var(--font-title3-size);
-              line-height: var(--font-title3-line-height);
-            }
-            #pdf,
-            #shipping {
-              display: none;
-              margin: 10px 0;
-            }
-            #pdf {
-                width: 70%;
-                min-height: 60vh;
-            }
-            @media only screen and (max-width: 1024px) {
-                #pdf {
-                  width: 90%;
-                }
-              }
-          `}
-        </style>
       </div>
     );
   }
