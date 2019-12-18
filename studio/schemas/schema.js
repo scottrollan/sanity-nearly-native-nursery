@@ -11,14 +11,17 @@ import siteConfig from './documents/siteConfig';
 import plant from './documents/plant';
 
 // Object types
+import aboutUs from './objects/aboutUs';
 import amount from './objects/amount';
 import contactUs from './objects/contactUs';
 import cta from './objects/cta';
 import embedHTML from './objects/embedHTML';
 import figure from './objects/figure';
+import hoursLocation from './objects/hoursLocation';
 import internalLink from './objects/internalLink';
 import link from './objects/link';
 import orderForm from './objects/orderForm';
+import ourFriends from './objects/ourFriends';
 import portableText from './objects/portableText';
 import searchPage from './objects/searchPage';
 import simplePortableText from './objects/simplePortableText';
@@ -37,10 +40,12 @@ export default createSchema({
   // Then proceed to concatenate our our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
+    aboutUs,
     contactUs,
     cta,
     embedHTML,
     figure,
+    hoursLocation,
     hero,
     plant,
     amount,
@@ -49,6 +54,7 @@ export default createSchema({
     link,
     mailchimp,
     orderForm,
+    ourFriends,
     page,
     portableText,
     route,

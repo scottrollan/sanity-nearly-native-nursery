@@ -19,10 +19,13 @@ export default {
       type: 'array',
       title: 'Page sections',
       of: [
+        { type: 'aboutUs' },
         { type: 'contactUs' },
         { type: 'hero' },
+        { type: 'hoursLocation' },
         { type: 'imageSection' },
         { type: 'mailchimp' },
+        { type: 'ourFriends' },
         { type: 'orderForm'},
         { type: 'socialMedia' },
         { type: 'searchPage' },

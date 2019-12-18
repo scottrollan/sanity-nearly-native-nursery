@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./SocialMedia.module.css";
 
 function SocialMedia(props) {
-  const { heading, label, text } = props;
+  const { heading, label } = props;
 
   const media = [
     {

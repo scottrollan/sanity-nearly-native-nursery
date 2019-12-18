@@ -134,7 +134,7 @@ class SearchConditionsInput extends Component {
 
   render() {
     return (
-      <section>
+      <div className={styles.wrapper}>
         <div className={styles.checkboxDiv}>
           {this.state.conditionsOptions.map(c => (
             <div className={styles.adaptiveCol} key={c.title}>
@@ -238,7 +238,7 @@ class SearchConditionsInput extends Component {
           </button>
         </div>
 
-      </section>
+      </div>
     );
   }
 }
