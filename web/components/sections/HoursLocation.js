@@ -4,13 +4,13 @@ const HoursLocation = () => {
   return (
     <div className="wrapper">
       <a href="/hours">
-        <button>
+        <button className="btn">
           Hours
         </button>
       </a>
 
       <a href="/location">
-        <button>
+        <button className="btn">
           Location
         </button>
       </a>
@@ -20,7 +20,7 @@ const HoursLocation = () => {
             margin: 20px 10%;
             text-align: center;
         }
-        button {
+        .btn {
           text-align: center;
           padding: 15px 0;
           margin: 0 5%;
@@ -34,9 +34,10 @@ const HoursLocation = () => {
           font-size: var(--font-title3-size);
           line-height: var(--font-title3-line-height);
         }
-        button:hover {
+        .btn:hover {
             background-color: #1D271B;
             color: white;
+        }
       `}</style>
     </div>
   );

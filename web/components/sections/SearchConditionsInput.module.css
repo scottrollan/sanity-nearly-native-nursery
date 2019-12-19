@@ -32,8 +32,8 @@ hr {
   line-height: var(--font-title3-line-height);
 }
 .searchCondButton:hover{
-  color: #7d62b2;
-  background-color: #c3c3c3;
+  color: white;
+  background-color: #1D271B;
 }
 .loader {
     display: none;
@@ -53,10 +53,10 @@ hr {
 
 		border-radius: 50%;
 		border-style: solid;
-		border-top-color: #3c5c1e;
-		border-right-color: #D8CE9D;
-		border-bottom-color: #bbc999;
-		border-left-color: #C09CE2;
+		border-top-color: #f83304;
+		border-right-color: #0c7c04;
+		border-bottom-color: #050505;
+		border-left-color: #dac646;
 		
 		content: '';
 

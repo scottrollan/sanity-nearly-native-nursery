@@ -44,4 +44,5 @@
     max-width: 300px;
     margin: 20px;
     cursor: pointer;
+    vertical-align: middle;
   }
