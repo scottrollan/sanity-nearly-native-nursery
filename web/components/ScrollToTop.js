@@ -14,18 +14,18 @@ class ScrollToTop extends Component {
           &#8896;
         </button>
         <style jsx>{`
-          button {
+          .button {
             position: fixed;
             z-index: 9999;
             bottom: 100px;
-            right: 70px;
+            right: 2%;
             background-color: #eeeeee;
             width: auto;
             height: auto;
             padding: 5px 10px;
             border-radius: 4px;
           }
-          button:hover {
+          .button:hover {
             background-color: #3e3e3e;
           }
         `}</style>

@@ -70,8 +70,8 @@ class searchNameInput extends Component {
               display: inherit;
             }
             .nameButton:hover {
-              color: #7d62b2;
-              background-color: #c3c3c3;
+              color: white;
+              background-color: #1D271B;
             }
           `}
         </style>

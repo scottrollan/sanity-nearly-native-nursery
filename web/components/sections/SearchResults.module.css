@@ -8,7 +8,7 @@ div.sticky {
   margin: 0;
   padding: 0;
 }
-button {
+.closeButton {
   margin: 10px;
 }
 .returnButton {
@@ -26,9 +26,10 @@ button {
   font-size: var(--font-title3-size);
   line-height: var(--font-title3-line-height);
 }
-button:hover {
+.returnButton:hover,
+.closeButton:hover {
   color: white;
-  background-color: #444444;
+  background-color: #1D271B;
 }
 .card {
   border: 1px solid #999999;
