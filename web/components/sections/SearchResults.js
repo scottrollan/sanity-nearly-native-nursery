@@ -239,17 +239,7 @@ class SearchResults extends Component {
                               <li key={index}>${p.price}</li>
                             ))}
                           </div>
-                          <div className={styles.oneThirdBlock}>
-                            <div className={styles.btnContainer}>
-                              <div className={styles.bg}></div>
-                              <button
-                                className={styles.closeButton}
-                                onClick={() => this.hideModal(`${modalId}`)}
-                              >
-                                Close
-                              </button>
-                            </div>
-                          </div>
+                          <div className={styles.oneThirdBlock}></div>
                         </div>
                       </div>
                       {/* end modal content */}
