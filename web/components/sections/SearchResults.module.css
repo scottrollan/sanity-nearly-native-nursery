@@ -44,9 +44,19 @@ div.sticky {
 .cardBody {
   padding: 0;
   text-align: center;
-
 }
-
+.trigger {
+  padding: 5px 10px;
+  margin: 20px;
+  width: auto;
+  height: auto;
+  border-radius: 4px;
+  background: white;
+}
+.trigger:hover {
+  color: white;
+  background-color: #1D271B !important;
+}
 .modal {
   position: fixed;
   left: 0;
@@ -76,18 +86,50 @@ div.sticky {
   overflow: hidden;
   overflow-y: auto;
 }
+.bg,
 .closeButton {
   position: absolute;
-  right: 12px;
-  top: 12px;
-  line-height: 1.5rem;
-  padding: 2px 8px;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 0.25rem;
-  background-color: transparent;
+  width: 75px;
+  height: 40px;
+  border-radius: 4px;
 }
-
+.btnContainer {
+  display: flex;
+  transform: translate(40%, -15%);
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+.bg {
+  animation: pulse 2s ease infinite;
+  background: #1D271B;
+}
+.closeButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 99;
+  border: none;
+  background: #1D271B;
+  background-size: 18px;
+  cursor: pointer;
+  outline: none;
+  color: white;
+}
+.littleButton {
+  padding: 2px 8px;
+  width: auto;
+  height: auto;
+  font-size: smaller;
+  margin: 0 10px;
+  border-radius: 4px;
+}
+.littleButton:hover {
+  color: white;
+  background-color: #1D271B;
+}
 .oneThirdBlock {
   display: inline-block;
   width: 33%;
@@ -108,4 +150,16 @@ li {
   content: "";
   display: table;
   clear: both;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
 }

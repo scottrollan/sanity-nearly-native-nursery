@@ -114,6 +114,15 @@ class SearchResults extends Component {
                     <div className={styles.modal} id={`${modalId}`}>
                       <div className={styles.modalContent}>
                         <h4>{d.commonName}</h4>
+                        <div className={styles.btnContainer}>
+                              <div className={styles.bg}></div>
+                              <button
+                                className={styles.closeButton}
+                                onClick={() => this.hideModal(`${modalId}`)}
+                              >
+                                Close
+                              </button>
+                            </div>
                         <h5>
                           <i>
                             {d.botanicalName} {d.variety}
@@ -124,14 +133,20 @@ class SearchResults extends Component {
                           {descIntro}
                           <span id={`short${modalId}`}>
                             ...{" "}
-                            <button onClick={() => this.expandDescr(`${modalId}`)}>
+                            <button
+                              className={styles.littleButton}
+                              onClick={() => this.expandDescr(`${modalId}`)}
+                            >
                               keep reading
                             </button>
                           </span>
                           <span id={`long${modalId}`} style={{ display: "none" }}>
                             {" "}
                             {descEnding}{" "}
-                            <button onClick={() => this.collapseDescr(`${modalId}`)}>
+                            <button
+                              className={styles.littleButton}
+                              onClick={() => this.collapseDescr(`${modalId}`)}
+                            >
                               see less
                             </button>
                           </span>
@@ -195,6 +210,7 @@ class SearchResults extends Component {
                                   style={{
                                     width: "100px",
                                     height: "auto",
+                                    fontSize: "1.5vw",
                                     margin: "0 calc(50% - 50px)"
                                   }}
                                 >
@@ -218,14 +234,7 @@ class SearchResults extends Component {
                             ))}
                           </div>
 
-                          <div className={styles.oneThirdBlock}>
-                            <button
-                              className={styles.closeButton}
-                              onClick={() => this.hideModal(`${modalId}`)}
-                            >
-                              Close
-                            </button>
-                          </div>
+
                         </div>
                       </div>
                       {/* end modal content */}
