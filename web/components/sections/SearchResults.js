@@ -113,16 +113,22 @@ class SearchResults extends Component {
                     {/* MODAL STARTS HERE */}
                     <div className={styles.modal} id={`${modalId}`}>
                       <div className={styles.modalContent}>
+                        <span
+                          style={{
+                            width: "22px",
+                            height: "22px",
+                            float: "right",
+                            border: "1px solid #3e3e3e",
+                            borderRadius: "3px",
+                            textalign: "center",
+                            cursor: 'pointer'
+                          }}
+                          onClick={() => this.hideModal(`${modalId}`)}
+                        >
+                          X
+                        </span>
                         <h4>{d.commonName}</h4>
-                        <div className={styles.btnContainer}>
-                              <div className={styles.bg}></div>
-                              <button
-                                className={styles.closeButton}
-                                onClick={() => this.hideModal(`${modalId}`)}
-                              >
-                                Close
-                              </button>
-                            </div>
+
                         <h5>
                           <i>
                             {d.botanicalName} {d.variety}
@@ -211,7 +217,7 @@ class SearchResults extends Component {
                                     width: "100px",
                                     height: "auto",
                                     fontSize: "1.5vw",
-                                    margin: "0 calc(50% - 50px)"
+                                    margin: "0 calc(50% - 50px) 12px"
                                   }}
                                 >
                                   {d.botanicalName} on Google Images
@@ -233,8 +239,17 @@ class SearchResults extends Component {
                               <li key={index}>${p.price}</li>
                             ))}
                           </div>
-
-
+                          <div className={styles.oneThirdBlock}>
+                            <div className={styles.btnContainer}>
+                              <div className={styles.bg}></div>
+                              <button
+                                className={styles.closeButton}
+                                onClick={() => this.hideModal(`${modalId}`)}
+                              >
+                                Close
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       {/* end modal content */}

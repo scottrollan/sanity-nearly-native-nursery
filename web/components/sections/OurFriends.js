@@ -37,7 +37,7 @@ function OurFriends(props) {
         <div className={styles.wrapper}>
           {ourFriends.map(friend => (
             <a href={friend.url} target="_blank" key={friend.key}>
-              <img className={styles.logo} src={friend.logo} alt={friend.name} />
+              <img className={styles.logo} src={friend.logo} alt={friend.name}></img>
             </a>
           ))}
 

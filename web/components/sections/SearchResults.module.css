@@ -79,7 +79,7 @@ div.sticky {
   transform: translate(-50%, -50%);
   background-color: white;
   padding: 1rem 1.5rem;
-  width: 90%;
+  width: auto;
   max-width: 450px;
   max-height: 90%;
   border-radius: 0.5rem;
@@ -95,7 +95,6 @@ div.sticky {
 }
 .btnContainer {
   display: flex;
-  transform: translate(40%, -15%);
   width: 100%;
   height: auto;
   justify-content: center;

@@ -25,9 +25,7 @@ class ScrollToTop extends Component {
             padding: 5px 10px;
             border-radius: 4px;
           }
-          .button:hover {
-            background-color: #3e3e3e;
-          }
+
         `}</style>
       </div>
     );

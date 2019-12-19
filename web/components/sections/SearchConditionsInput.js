@@ -127,7 +127,6 @@ class SearchConditionsInput extends Component {
       return filters;
 
     });
-      console.log(`Sent to filters: ${filters}`);
       this.props.searchByConditions(filters);
   };
   
