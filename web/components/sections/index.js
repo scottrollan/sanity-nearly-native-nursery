@@ -11,3 +11,6 @@ export {default as OrderForm} from './OrderForm'
 export {default as HoursLocation} from './HoursLocation'
 export {default as AboutUs} from './AboutUs'
 export {default as OurFriends} from './OurFriends'
+export {default as LandingLogo} from './LandingLogo'
+export {default as Banner} from './Banner'
+

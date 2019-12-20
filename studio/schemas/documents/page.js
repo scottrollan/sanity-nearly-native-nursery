@@ -20,10 +20,12 @@ export default {
       title: 'Page sections',
       of: [
         { type: 'aboutUs' },
+        { type: 'banner' },
         { type: 'contactUs' },
         { type: 'hero' },
         { type: 'hoursLocation' },
         { type: 'imageSection' },
+        { type: 'landingLogo' },
         { type: 'mailchimp' },
         { type: 'ourFriends' },
         { type: 'orderForm'},

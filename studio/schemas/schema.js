@@ -13,12 +13,14 @@ import plant from './documents/plant';
 // Object types
 import aboutUs from './objects/aboutUs';
 import amount from './objects/amount';
+import banner from './objects/banner';
 import contactUs from './objects/contactUs';
 import cta from './objects/cta';
 import embedHTML from './objects/embedHTML';
 import figure from './objects/figure';
 import hoursLocation from './objects/hoursLocation';
 import internalLink from './objects/internalLink';
+import landingLogo from './objects/landingLogo'
 import link from './objects/link';
 import orderForm from './objects/orderForm';
 import ourFriends from './objects/ourFriends';
@@ -41,6 +43,7 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     aboutUs,
+    banner,
     contactUs,
     cta,
     embedHTML,
@@ -51,6 +54,7 @@ export default createSchema({
     amount,
     imageSection,
     internalLink,
+    landingLogo,
     link,
     mailchimp,
     orderForm,
