@@ -126,6 +126,7 @@ th {
   text-align: left;
   text-decoration: underline;
   width: 33.333%;
+  vertical-align: bottom;
 }
 td {
   text-align: left;
