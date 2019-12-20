@@ -221,7 +221,7 @@ class SearchResults extends Component {
                                 ))}
                               </ul>
                             </td>
-                            <td style={{ transform: 'translate(-30%,-100px)'}}>
+                            <td style={{ transform: 'translate(-15%,-40px)'}}>
                               {hasUniqueImage == true ? (
                                 //if it has a unique image, it is clickable
                                 <a href={`${imageUrl}`} target="_blank" style={{ width: 'auto' }}>
