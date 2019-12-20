@@ -29,7 +29,7 @@ div.sticky {
 .returnButton:hover,
 .closeButton:hover {
   color: white;
-  background-color: #1D271B;
+  background-color: #1d271b;
 }
 .card {
   border: 1px solid #999999;
@@ -55,7 +55,7 @@ div.sticky {
 }
 .trigger:hover {
   color: white;
-  background-color: #1D271B !important;
+  background-color: #1d271b !important;
 }
 .modal {
   position: fixed;
@@ -109,28 +109,17 @@ div.sticky {
 }
 .littleButton:hover {
   color: white;
-  background-color: #1D271B;
+  background-color: #1d271b;
 }
-.oneThirdBlock {
-  display: inline-block;
-  width: 33%;
-  margin: 10px 0;
-  text-align: left;
-  vertical-align: top;
-}
-table {
-  width: 100%;
-  margin: 10px;
-}
-th {
+.catHeading {
   text-align: left;
   text-decoration: underline;
-  width: 33.333%;
   vertical-align: bottom;
 }
-td {
-  text-align: left;
-  vertical-align: top;
+.catItems {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
 }
 ul {
   text-align: left;
@@ -141,8 +130,4 @@ li {
   list-style-type: none;
   text-decoration: none;
 }
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+

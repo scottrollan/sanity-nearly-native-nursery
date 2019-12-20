@@ -40,6 +40,7 @@ function LandingLogo() {
           }
           img {
             height: 300px;
+            max-width: 80%;
           }
           .label {
             font-size: var(--font-micro-size);
