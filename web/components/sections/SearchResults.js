@@ -148,115 +148,106 @@ class SearchResults extends Component {
                           Thrives from zone {d.lowZone} to zone {d.highZone}.
                         </p>
                         {/* ////////////// TABLE ///////////////////////////////////////////////////////////// */}
-                        <table cellSpacing={0}>
-                          <tr className={styles.row} style={{ width: "100%" }}>
-                            <th>Soil types</th>
-                            <th>Soil Ph</th>
-                            <th>Water level</th>
-                          </tr>
-                          <tr>
-                            <td>
-                              <ul>
-                                {d.soilType.map((type, index) => (
-                                  <li key={index}>{type}</li>
-                                ))}
-                              </ul>
-                            </td>
-                            <td>
-                              <ul>
-                                {d.soilPH.map((ph, index) => (
-                                  <li key={index}>{ph}</li>
-                                ))}
-                              </ul>
-                            </td>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignContent: "flex-start",
+                            justifyContent: "space-around",
+                            flexWrap: "wrap"
+                          }}
+                        >
+                          <div className={styles.catItems}>
+                            <h4 className={styles.catHeading}>Soil types</h4>
+                            <ul>
+                              {d.soilType.map((type, index) => (
+                                <li key={index}>{type}</li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div className={styles.catItems}>
+                            <h4 className={styles.catHeading}>Soil Ph</h4>
+                            <ul>
+                              {d.soilPH.map((ph, index) => (
+                                <li key={index}>{ph}</li>
+                              ))}
+                            </ul>
+                          </div>
 
-                            <td>
-                              <ul>
-                                {d.waterLevel.map((water, index) => (
-                                  <li key={index}>{water}</li>
-                                ))}
-                              </ul>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th>Sun exposure</th>
-                            <th>Foliage</th>
-                            {/* <th></th> */}
-                          </tr>
-                          <tr>
-                            <td>
-                              <ul>
-                                {d.sunlightLevel.map((sun, index) => (
-                                  <li key={index}>{sun}</li>
-                                ))}
-                              </ul>
-                            </td>
-                            <td>
-                              <ul>
-                                {d.foliage.map((f, index) => (
-                                  <li key={index}>{f}</li>
-                                ))}
-                              </ul>
-                            </td>
+                          <div className={styles.catItems}>
+                            <h4 className={styles.catHeading}>Water level</h4>
+                            <ul>
+                              {d.waterLevel.map((water, index) => (
+                                <li key={index}>{water}</li>
+                              ))}
+                            </ul>
+                          </div>
 
+                          <div className={styles.catItems}>
+                            <h4 className={styles.catHeading}>Sun exposure</h4>
+                            <ul>
+                              {d.sunlightLevel.map((sun, index) => (
+                                <li key={index}>{sun}</li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div className={styles.catItems}>
+                            <h4 className={styles.catHeading}>Foliage</h4>
+                            <ul>
+                              {d.foliage.map((f, index) => (
+                                <li key={index}>{f}</li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div className={styles.catItems}></div>
 
-                          </tr>
-                          <tr>
-                            <th>Container Size</th>
-                            <th>Price</th>
-                            <th></th>
-                          </tr>
-                          <tr>
-                            <td>
-                              <ul>
-                                {d.amount.map((p, index) => (
-                                  <li key={index}>{p.containerSize}</li>
-                                ))}
-                              </ul>
-                            </td>
-                            <td>
-                              <ul>
-                                {d.amount.map((p, index) => (
-                                  <li key={index}>{p.price}</li>
-                                ))}
-                              </ul>
-                            </td>
-                            <td style={{ transform: 'translate(-15%,-40px)'}}>
-                              {hasUniqueImage == true ? (
-                                //if it has a unique image, it is clickable
-                                <a href={`${imageUrl}`} target="_blank" style={{ width: 'auto' }}>
-                                  <div
-                                    style={{
-                                      width: "100px",
-                                      height: "110px",
-                                      margin: "0 calc(50% - 50px)",
-                                      backgroundImage: `url("${imageUrl}?w=100&fit=scale")`,
-                                      backgroundRepeat: "no-repeat"
-                                    }}
-                                  ></div>
-                                </a>
-                              ) : (
-                                //if there is a placeholder image, find it on google images
+                          <div className={styles.catItems}>
+                            <h4 className={styles.catHeading}>Container Size</h4>
+                            <ul>
+                              {d.amount.map((p, index) => (
+                                <li key={index}>{p.containerSize}</li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div className={styles.catItems}>
+                            <h4 className={styles.catHeading}>Price</h4>
+                            <ul>
+                              {d.amount.map((p, index) => (
+                                <li key={index}>${p.price}</li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div style={{ display: "flex", justifyContent: 'flex-start', width: "30%", padding: '0 0 20px 0' }}>
+                            {hasUniqueImage == true ? (
+                              //if it has a unique image, it is clickable
+                              <a href={`${imageUrl}`} target="_blank">
+                                <img
+                                  src={`${imageUrl}?w=100&fit=scale`}
+                                  alt=""
+                                />
+                              </a>
+                            ) : (
+                              //if there is a placeholder image, find it on google images
+
+                              <button
+                                style={{
+                                  margin: "0",
+                                  width: 'auto',
+                                  maxWidth: '100px',
+                                  fontSize: "16px",
+                                  padding: "4px",
+                                }}
+                              >
                                 <a
                                   href={`http://www.google.com/search?q=${d.botanicalName} ${d.variety}&tbm=isch`}
                                   target="_blank"
+                                  style={{ textDecoration: 'none' }}
                                 >
-                                  <button
-                                    style={{
-                                      width: "auto",
-                                      maxWidth: "100%",
-                                      height: "auto",
-                                      fontSize: "1.5vw",
-                                      margin: "0 calc(50% - 50px) 12px"
-                                    }}
-                                  >
-                                    {d.botanicalName} on Google Images
-                                  </button>
+                                  {d.botanicalName} on Google Images
                                 </a>
-                              )}
-                            </td>
-                          </tr>
-                        </table>
+                              </button>
+                            )}
+                          </div>
+                        </div>
                       </div>
                       {/* end modal content */}
                     </div>
