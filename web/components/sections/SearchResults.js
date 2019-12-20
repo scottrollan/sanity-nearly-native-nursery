@@ -72,10 +72,7 @@ class SearchResults extends Component {
                   className={styles.card}
                   key={d._id}
                   style={{
-                    backgroundColor: index % 2 == 0 ? "#eeeeee" : "#ffffff",
-                    WebkitBoxShadow: "10px 10px 10px 1px rgba(0, 0, 0, 0.12)",
-                    MozBoxshadow: "10px 10px 10px 1px rgba(0, 0, 0, 0.12)",
-                    boxShadow: "10px 10px 10px 1px rgba(0, 0, 0, 0.12)"
+                    backgroundColor: index % 2 == 0 ? "#eeeeee" : "#ffffff"
                   }}
                 >
                   <div className={styles.cardBody}>
@@ -113,18 +110,7 @@ class SearchResults extends Component {
                     {/* MODAL STARTS HERE */}
                     <div className={styles.modal} id={`${modalId}`}>
                       <div className={styles.modalContent}>
-                        <span
-                          style={{
-                            width: "22px",
-                            height: "22px",
-                            float: "right",
-                            border: "1px solid #3e3e3e",
-                            borderRadius: "3px",
-                            textalign: "center",
-                            cursor: 'pointer'
-                          }}
-                          onClick={() => this.hideModal(`${modalId}`)}
-                        >
+                        <span id={styles.xButton} onClick={() => this.hideModal(`${modalId}`)}>
                           X
                         </span>
                         <h4>{d.commonName}</h4>
@@ -161,86 +147,116 @@ class SearchResults extends Component {
                         <p>
                           Thrives from zone {d.lowZone} to zone {d.highZone}.
                         </p>
-                        <div className={styles.row} style={{ width: "100%" }}>
-                          <div className={styles.oneThirdBlock}>
-                            <ul>Soil types:</ul>
-                            {d.soilType.map((type, index) => (
-                              <li key={index}>{type}</li>
-                            ))}
-                          </div>
-                          <div className={styles.oneThirdBlock}>
-                            <ul>Soil Ph:</ul>
-                            {d.soilPH.map((ph, index) => (
-                              <li key={index}>{ph}</li>
-                            ))}
-                          </div>
-                          <div className={styles.oneThirdBlock}>
-                            <ul>Water level:</ul>
-                            {d.waterLevel.map((water, index) => (
-                              <li key={index}>{water}</li>
-                            ))}
-                          </div>
-                          <div className={styles.oneThirdBlock}>
-                            <ul>Sun exposure:</ul>
-                            {d.sunlightLevel.map((sun, index) => (
-                              <li key={index}>{sun}</li>
-                            ))}
-                          </div>
-                          <div className={styles.oneThirdBlock}>
-                            <ul>Foliage:</ul>
-                            {d.foliage.map((f, index) => (
-                              <li key={index}>{f}</li>
-                            ))}
-                          </div>
-                          <div className={styles.oneThirdBlock}>
-                            {hasUniqueImage == true ? (
-                              //if it has a unique image, it is clickable
-                              <a href={`${imageUrl}`} target="_blank">
-                                <div
-                                  style={{
-                                    width: "100px",
-                                    height: "110px",
-                                    margin: "0 calc(50% - 50px)",
-                                    backgroundImage: `url("${imageUrl}?w=100&fit=scale")`,
-                                    backgroundRepeat: "no-repeat"
-                                  }}
-                                ></div>
-                              </a>
-                            ) : (
-                              //if there is a placeholder image, find it on google images
-                              <a
-                                href={`http://www.google.com/search?q=${d.botanicalName} ${d.variety}&tbm=isch`}
-                                target="_blank"
-                              >
-                                <button
-                                  style={{
-                                    width: "100px",
-                                    height: "auto",
-                                    fontSize: "1.5vw",
-                                    margin: "0 calc(50% - 50px) 12px"
-                                  }}
+                        {/* ////////////// TABLE ///////////////////////////////////////////////////////////// */}
+                        <table cellSpacing={0}>
+                          <tr className={styles.row} style={{ width: "100%" }}>
+                            <th>Soil types</th>
+                            <th>Soil Ph</th>
+                            <th>Water level</th>
+                          </tr>
+                          <tr>
+                            <td>
+                              <ul>
+                                {d.soilType.map((type, index) => (
+                                  <li key={index}>{type}</li>
+                                ))}
+                              </ul>
+                            </td>
+                            <td>
+                              <ul>
+                                {d.soilPH.map((ph, index) => (
+                                  <li key={index}>{ph}</li>
+                                ))}
+                              </ul>
+                            </td>
+
+                            <td>
+                              <ul>
+                                {d.waterLevel.map((water, index) => (
+                                  <li key={index}>{water}</li>
+                                ))}
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th>Sun exposure</th>
+                            <th>Foliage</th>
+                            {/* <th></th> */}
+                          </tr>
+                          <tr>
+                            <td>
+                              <ul>
+                                {d.sunlightLevel.map((sun, index) => (
+                                  <li key={index}>{sun}</li>
+                                ))}
+                              </ul>
+                            </td>
+                            <td>
+                              <ul>
+                                {d.foliage.map((f, index) => (
+                                  <li key={index}>{f}</li>
+                                ))}
+                              </ul>
+                            </td>
+
+
+                          </tr>
+                          <tr>
+                            <th>Container Size</th>
+                            <th>Price</th>
+                            <th></th>
+                          </tr>
+                          <tr>
+                            <td>
+                              <ul>
+                                {d.amount.map((p, index) => (
+                                  <li key={index}>{p.containerSize}</li>
+                                ))}
+                              </ul>
+                            </td>
+                            <td>
+                              <ul>
+                                {d.amount.map((p, index) => (
+                                  <li key={index}>{p.price}</li>
+                                ))}
+                              </ul>
+                            </td>
+                            <td style={{ transform: 'translate(-30%,-100px)'}}>
+                              {hasUniqueImage == true ? (
+                                //if it has a unique image, it is clickable
+                                <a href={`${imageUrl}`} target="_blank" style={{ width: 'auto' }}>
+                                  <div
+                                    style={{
+                                      width: "100px",
+                                      height: "110px",
+                                      margin: "0 calc(50% - 50px)",
+                                      backgroundImage: `url("${imageUrl}?w=100&fit=scale")`,
+                                      backgroundRepeat: "no-repeat"
+                                    }}
+                                  ></div>
+                                </a>
+                              ) : (
+                                //if there is a placeholder image, find it on google images
+                                <a
+                                  href={`http://www.google.com/search?q=${d.botanicalName} ${d.variety}&tbm=isch`}
+                                  target="_blank"
                                 >
-                                  {d.botanicalName} on Google Images
-                                </button>
-                              </a>
-                            )}
-                          </div>
-                        </div>
-                        <div className={styles.row} style={{ width: "100%" }}>
-                          <div className={styles.oneThirdBlock}>
-                            <ul>Container Size</ul>
-                            {d.amount.map((p, index) => (
-                              <li key={index}>{p.containerSize}</li>
-                            ))}
-                          </div>
-                          <div className={styles.oneThirdBlock}>
-                            <ul>Price</ul>
-                            {d.amount.map((p, index) => (
-                              <li key={index}>${p.price}</li>
-                            ))}
-                          </div>
-                          <div className={styles.oneThirdBlock}></div>
-                        </div>
+                                  <button
+                                    style={{
+                                      width: "auto",
+                                      maxWidth: "100%",
+                                      height: "auto",
+                                      fontSize: "1.5vw",
+                                      margin: "0 calc(50% - 50px) 12px"
+                                    }}
+                                  >
+                                    {d.botanicalName} on Google Images
+                                  </button>
+                                </a>
+                              )}
+                            </td>
+                          </tr>
+                        </table>
                       </div>
                       {/* end modal content */}
                     </div>
