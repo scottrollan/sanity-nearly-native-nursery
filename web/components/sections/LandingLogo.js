@@ -10,7 +10,7 @@ function LandingLogo() {
             alt=""
           />
         </div>
-        <div className="inline">
+        <div className="inline" style={{ textAlign: 'right', marginBottom: '0' }}>
           <div className="label">Proud to be selected as a </div>
           <h2 className="heading">Garden Watchdog Top 5 Company</h2>
           <h4>FIVE years in a row by</h4>
@@ -24,23 +24,23 @@ function LandingLogo() {
       <style jsx>
         {`
           .root {
-            padding: 0;
+            padding: 0 10%;
           }
           .article {
-            width: 100%;
-            
+            width: 100%;            
             margin: 0 auto;
             padding: 0;
             box-sizing: border-box;
           }
           .inline {
+            text-align: left;
             display: inline-block;
-            margin: 0 5%;
+            margin: 0 7.5%;
+            width: 35%;
             vertical-align: middle;
           }
           img {
-            height: 300px;
-            max-width: 80%;
+            width: 100%;
           }
           .label {
             font-size: var(--font-micro-size);
@@ -58,9 +58,10 @@ function LandingLogo() {
           .label + .heading {
             margin-top: 0.25em;
           }
-          @media only screen and (max-width: 1024px) {
-            .root {
-              padding: 4rem 0;
+          @media only screen and (max-width: 880px) {
+            .inline {
+              width: 70%;
+              margin: 0 15% 40px;
             }
           }
         `}

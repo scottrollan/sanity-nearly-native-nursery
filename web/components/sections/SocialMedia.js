@@ -26,8 +26,8 @@ function SocialMedia(props) {
     }
   ];
 
-  const logoWidth = 75 / media.length; //sum of the widths of the logos will equal 75%
-  const logoSideMargin = 25 / (2 * media.length); //sum of the widths of side margins will make up the other 25%
+  const logoWidth = 40 / media.length; //sum of the widths of the logos will equal 75%
+  const logoSideMargin = 60 / (2 * media.length); //sum of the widths of side margins will make up the other 25%
 
   return (
     <div className={styles.root}>
